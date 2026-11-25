@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estúdio de sprites</title>
+<style>
+  :root{color-scheme:dark}
+  body{margin:0;background:#1b2022;color:#d8d2c4;font:13px/1.4 system-ui,sans-serif}
+  header{padding:10px 14px;border-bottom:1px solid #333}
+  h1{margin:0;font-size:16px}
+  #log{white-space:pre-wrap;font:12px ui-monospace,monospace;color:#9fb0a8;padding:8px 14px;margin:0}
+  #out{display:flex;flex-wrap:wrap;gap:12px;padding:12px 14px;align-items:flex-end}
+  figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .ck{background:repeating-conic-gradient(#3a4144 0 25%,#2c3234 0 50%) 0 0/16px 16px;border-radius:6px;padding:6px;position:relative}
+  .ck canvas{display:block}
+  .ax{position:absolute;width:9px;height:9px;margin:-4px 0 0 -4px;border:1px solid #ff5a5a;border-radius:50%}
+  figcaption{font:11px ui-monospace,monospace;color:#bfb8a8;text-align:center}
+</style>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<header><h1>Estúdio de sprites do Brasalume</h1></header>
+<pre id="log"></pre>
+<div id="out"></div>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
+import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
+
+// câmera do jogo: projeção 2:1 (um quadrado do chão vira um losango duas vezes mais largo que alto) = 30° de elevação, girada 45°
+const SIZE = 640, EL = 30 * Math.PI / 180, AZ = 45 * Math.PI / 180, OUTLINE = 3;
+const q = new URLSearchParams(location.search), demo = q.has('demo');
+const studio = window.studio = {status: 'running', results: [], errors: []};
+const logEl = document.getElementById('log'), log = m => { logEl.textContent += m + '\n'; };
+
+const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, preserveDrawingBuffer: true});
+renderer.setPixelRatio(1); renderer.setSize(SIZE, SIZE); renderer.setClearColor(0x000000, 0);
+const dirToCam = new THREE.Vector3(Math.sin(AZ) * Math.cos(EL), Math.sin(EL), Math.cos(AZ) * Math.cos(EL));
+const right = new THREE.Vector3(Math.cos(AZ), 0, -Math.sin(AZ));
+
+function scene(){
+  const sc = new THREE.Scene();
+  sc.add(new THREE.HemisphereLight(0xe8eeff, 0x463c2e, 1.7));
+  const key = new THREE.DirectionalLight(0xfff0d8, 2.6);   // luz de cima, da esquerda e da frente
+  key.position.copy(new THREE.Vector3(0, 2, 0).addScaledVector(right, -1.2).addScaledVector(dirToCam, 1)); sc.add(key);
+  const rim = new THREE.DirectionalLight(0xa8c4ff, .9);    // contraluz fria para recortar a silhueta
+  rim.position.copy(new THREE.Vector3(0, 1.5, 0).addScaledVector(right, 1).addScaledVector(dirToCam, -1.2)); sc.add(rim);
+  return sc;
+}
+function matte(obj){
+  obj.traverse(o => { if (!o.isMesh) return; for (const m of (Array.isArray(o.material) ? o.material : [o.material])){
+    if ('metalness' in m) m.metalness = 0; if ('roughness' in m) m.roughness = 1; if (m.map) m.map.colorSpace = THREE.SRGBColorSpace; m.needsUpdate = true; } });
+}
+// deixa o modelo em pé no chão, centrado, com altura 1; objetos de frente (arcos) ficam com o lado largo voltado para a câmera
+function normalize(obj, job){
+  let box = new THREE.Box3().setFromObject(obj, true), size = box.getSize(new THREE.Vector3());
+  let yaw = (job.yaw || 0) * Math.PI / 180;
+  if (job.front) yaw += AZ + (size.z > size.x ? Math.PI / 2 : 0);
+  obj.rotation.y += yaw; obj.updateMatrixWorld(true);
+  box = new THREE.Box3().setFromObject(obj, true); size = box.getSize(new THREE.Vector3());
+  obj.scale.multiplyScalar(1 / size.y); obj.updateMatrixWorld(true);
+  box = new THREE.Box3().setFromObject(obj, true);
+  const c = box.getCenter(new THREE.Vector3());
+  obj.position.x -= c.x; obj.position.z -= c.z; obj.position.y -= box.min.y; obj.updateMatrixWorld(true);
+  return new THREE.Box3().setFromObject(obj, true);
+}
+function shoot(obj, job){
+  const sc = scene(); sc.add(obj); matte(obj);
+  const box = normalize(obj, job);
+  const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, -50, 50), target = new THREE.Vector3(0, .5, 0);
+  cam.position.copy(target).addScaledVector(dirToCam, 10); cam.lookAt(target); cam.updateMatrixWorld(true);
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const x of [box.min.x, box.max.x]) for (const y of [box.min.y, box.max.y]) for (const z of [box.min.z, box.max.z]){
+    const p = new THREE.Vector3(x, y, z).applyMatrix4(cam.matrixWorldInverse); x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y); }
+  const half = Math.max(x1 - x0, y1 - y0) / 2 * 1.06, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  cam.left = cx - half; cam.right = cx + half; cam.top = cy + half; cam.bottom = cy - half; cam.updateProjectionMatrix();
+  renderer.render(sc, cam);
+  const px = v => { const p = v.clone().project(cam); return {x: (p.x + 1) / 2 * SIZE, y: (1 - p.y) / 2 * SIZE}; };
+  const a = px(new THREE.Vector3(0, 0, 0)), top = px(new THREE.Vector3(0, 1, 0));
+  return {anchor: a, unitPx: a.y - top.y, footW: (box.max.x - box.min.x), footD: (box.max.z - box.min.z)};
+}
+// recorta, contorna e reduz para o tamanho final
+function finish(anchor, unitPx, outPx){
+  const src = document.createElement('canvas'); src.width = SIZE; src.height = SIZE;
+  const sx = src.getContext('2d', {willReadFrequently: true}); sx.drawImage(renderer.domElement, 0, 0);
+  const d = sx.getImageData(0, 0, SIZE, SIZE).data;
+  let x0 = SIZE, y0 = SIZE, x1 = -1, y1 = -1;
+  for (let y = 0; y < SIZE; y++) for (let x = 0; x < SIZE; x++) if (d[(y * SIZE + x) * 4 + 3] > 10){ if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  if (x1 < 0) throw new Error('a imagem saiu vazia');
+  const pad = OUTLINE + 2; x0 = Math.max(0, x0 - pad); y0 = Math.max(0, y0 - pad); x1 = Math.min(SIZE - 1, x1 + pad); y1 = Math.min(SIZE - 1, y1 + pad);
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  const sil = document.createElement('canvas'); sil.width = w; sil.height = h; const s2 = sil.getContext('2d');
+  s2.drawImage(src, x0, y0, w, h, 0, 0, w, h); s2.globalCompositeOperation = 'source-in'; s2.fillStyle = 'rgba(10,12,13,.92)'; s2.fillRect(0, 0, w, h);
+  const comp = document.createElement('canvas'); comp.width = w; comp.height = h; const c3 = comp.getContext('2d');
+  for (let i = 0; i < 16; i++){ const an = i / 16 * Math.PI * 2; c3.drawImage(sil, Math.cos(an) * OUTLINE, Math.sin(an) * OUTLINE); }
+  c3.drawImage(src, x0, y0, w, h, 0, 0, w, h);
+  const f = Math.min(1, outPx / h), fw = Math.max(1, Math.round(w * f)), fh = Math.max(1, Math.round(h * f));
+  let cur = comp, cw = w, ch = h;
+  while (cw / 2 > fw){ const t = document.createElement('canvas'); t.width = Math.round(cw / 2); t.height = Math.round(ch / 2); const tc = t.getContext('2d'); tc.imageSmoothingQuality = 'high'; tc.drawImage(cur, 0, 0, t.width, t.height); cur = t; cw = t.width; ch = t.height; }
+  const fin = document.createElement('canvas'); fin.width = fw; fin.height = fh; const fc = fin.getContext('2d'); fc.imageSmoothingQuality = 'high'; fc.drawImage(cur, 0, 0, fw, fh);
+  const kx = fw / w, ky = fh / h, r1 = v => Math.round(v * 10) / 10;
+  return {canvas: fin, w: fw, h: fh, ax: r1((anchor.x - x0) * kx), ay: r1((anchor.y - y0) * ky), hpx: r1(unitPx * ky)};
+}
+async function post(path, body){ const r = await fetch(path, {method: 'POST', body}); if (!r.ok) throw new Error('gravar ' + path + ': HTTP ' + r.status); }
+function show(meta, canvas){
+  const fig = document.createElement('figure'), box = document.createElement('div'); box.className = 'ck'; box.appendChild(canvas);
+  const mk = document.createElement('span'); mk.className = 'ax'; mk.style.left = (6 + meta.ax) + 'px'; mk.style.top = (6 + meta.ay) + 'px'; box.appendChild(mk);
+  const cap = document.createElement('figcaption'); cap.textContent = meta.name + ' · ' + meta.w + '×' + meta.h + ' · base ' + meta.ax + ',' + meta.ay + ' · altura ' + meta.hpx;
+  fig.append(box, cap); document.getElementById('out').appendChild(fig);
+}
+// objetos de teste feitos aqui mesmo, para validar o estúdio sem gastar créditos
+function demoObject(kind){
+  const g = new THREE.Group(), M = (c) => new THREE.MeshStandardMaterial({color: c, roughness: 1, flatShading: true});
+  if (kind === 'arvore'){ const tr = new THREE.Mesh(new THREE.CylinderGeometry(.06, .09, .35, 8), M(0x6a4a2a)); tr.position.y = .17; g.add(tr);
+    for (let i = 0; i < 3; i++){ const c = new THREE.Mesh(new THREE.ConeGeometry(.42 - i * .1, .5, 9), M(0x3f7048)); c.position.y = .45 + i * .3; g.add(c); } }
+  else if (kind === 'pedra'){ const r = new THREE.Mesh(new THREE.DodecahedronGeometry(.5, 0), M(0x8a8a84)); r.scale.set(1.2, .7, 1); r.position.y = .35; g.add(r); }
+  else { for (const sx of [-.45, .45]){ const p = new THREE.Mesh(new THREE.BoxGeometry(.18, .9, .22), M(0x7a7468)); p.position.set(sx, .45, 0); g.add(p); }
+    const arc = new THREE.Mesh(new THREE.TorusGeometry(.45, .1, 8, 16, Math.PI), M(0x7a7468)); arc.position.y = .9; g.add(arc); }
+  return g;
+}
+
+async function main(){
+  try {
+    let jobs;
+    if (demo) jobs = [{name: 'demo_arvore', kind: 'arvore', px: 200}, {name: 'demo_pedra', kind: 'pedra', px: 120}, {name: 'demo_arco', kind: 'arco', px: 200, front: true}];
+    else {
+      const spec = await (await fetch(q.get('jobs') || 'jobs_teste.json')).json();
+      const man = await fetch('tripo/manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({}));
+      jobs = spec.jobs.filter(j => !q.get('only') || q.get('only').split(',').includes(j.name)).filter(j => { const ok = man[j.name] && man[j.name].status === 'success'; if (!ok) log('pulando ' + j.name + ': modelo ainda não está pronto'); return ok; });
+    }
+    const loader = new GLTFLoader(), draco = new DRACOLoader();
+    draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/libs/draco/gltf/');
+    loader.setDRACOLoader(draco); loader.setMeshoptDecoder(MeshoptDecoder);
+    const manifest = demo ? {} : await fetch('/sprites/sprites.json').then(r => r.ok ? r.json() : {}).catch(() => ({}));
+    manifest.sprites = manifest.sprites || {};
+    for (const job of jobs){
+      try {
+        const obj = demo ? demoObject(job.kind) : (await loader.loadAsync('tripo/' + job.name + '.glb')).scene;
+        const shot = shoot(obj, job), res = finish(shot.anchor, shot.unitPx, job.px || 256);
+        const meta = {name: job.name, type: job.type || job.kind, w: res.w, h: res.h, ax: res.ax, ay: res.ay, hpx: res.hpx};
+        const blob = await new Promise(r => res.canvas.toBlob(r, 'image/png'));
+        await post('/save/' + job.name + '.png', blob);
+        manifest.sprites[job.name] = meta; studio.results.push(meta); show(meta, res.canvas);
+        log('ok: ' + job.name + ' (' + res.w + '×' + res.h + ', ' + Math.round(blob.size / 1024) + ' KB)');
+      } catch (e){ studio.errors.push(job.name + ': ' + e.message); log('ERRO em ' + job.name + ': ' + e.message); }
+    }
+    if (!demo && studio.results.length){ manifest.version = 1; manifest.updated = new Date().toISOString(); await post('/save/sprites.json', JSON.stringify(manifest, null, 1)); log('sprites.json atualizado'); }
+    studio.status = 'done'; log('pronto: ' + studio.results.length + ' imagens, ' + studio.errors.length + ' erros');
+  } catch (e){ studio.status = 'error'; studio.errors.push(e.message); log('ERRO: ' + e.message); }
+}
+main();
+</script>
+</body>
+</html>

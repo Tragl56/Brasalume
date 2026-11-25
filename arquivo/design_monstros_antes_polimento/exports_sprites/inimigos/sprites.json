@@ -1,0 +1,1042 @@
+{
+ "brotinho_de_musgo": {
+  "w": 186,
+  "h": 192,
+  "ax": 93,
+  "ay": 186,
+  "kind": "blob",
+  "papel": "comum"
+ },
+ "mariposa_de_fuligem": {
+  "w": 154,
+  "h": 192,
+  "ax": 77,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "javali_fume": {
+  "w": 169,
+  "h": 192,
+  "ax": 84,
+  "ay": 186,
+  "kind": "beast",
+  "papel": "comum"
+ },
+ "cogumelo_saltitante": {
+  "w": 208,
+  "h": 192,
+  "ax": 104,
+  "ay": 186,
+  "kind": "mushroom",
+  "papel": "comum"
+ },
+ "rainha_musgo_antiga": {
+  "w": 218,
+  "h": 224,
+  "ax": 109,
+  "ay": 218,
+  "kind": "blob",
+  "papel": "boss"
+ },
+ "sapo_lampiao": {
+  "w": 187,
+  "h": 192,
+  "ax": 94,
+  "ay": 186,
+  "kind": "blob",
+  "papel": "comum"
+ },
+ "lodo_errante": {
+  "w": 200,
+  "h": 192,
+  "ax": 100,
+  "ay": 186,
+  "kind": "blob",
+  "papel": "comum"
+ },
+ "vagalume_faminto": {
+  "w": 186,
+  "h": 192,
+  "ax": 93,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "planta_engolidora": {
+  "w": 154,
+  "h": 192,
+  "ax": 77,
+  "ay": 186,
+  "kind": "plant",
+  "papel": "comum"
+ },
+ "velho_sapo_do_lodo": {
+  "w": 219,
+  "h": 224,
+  "ax": 110,
+  "ay": 218,
+  "kind": "blob",
+  "papel": "boss"
+ },
+ "golem_de_cascalho": {
+  "w": 127,
+  "h": 192,
+  "ax": 64,
+  "ay": 186,
+  "kind": "golem",
+  "papel": "comum"
+ },
+ "morcego_de_quartzo": {
+  "w": 166,
+  "h": 192,
+  "ax": 83,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "escavador_cego": {
+  "w": 237,
+  "h": 192,
+  "ax": 118,
+  "ay": 186,
+  "kind": "beast",
+  "papel": "comum"
+ },
+ "caranguejo_de_cascalho": {
+  "w": 258,
+  "h": 192,
+  "ax": 129,
+  "ay": 186,
+  "kind": "crab",
+  "papel": "comum"
+ },
+ "colosso_de_granito": {
+  "w": 147,
+  "h": 224,
+  "ax": 74,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "boss"
+ },
+ "lobo_de_nevoa": {
+  "w": 262,
+  "h": 192,
+  "ax": 131,
+  "ay": 186,
+  "kind": "beast",
+  "papel": "comum"
+ },
+ "espectro_de_galho": {
+  "w": 95,
+  "h": 192,
+  "ax": 48,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "corvo_agourento": {
+  "w": 251,
+  "h": 192,
+  "ax": 126,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "olho_da_nevoa": {
+  "w": 127,
+  "h": 192,
+  "ax": 64,
+  "ay": 186,
+  "kind": "eye",
+  "papel": "comum"
+ },
+ "alfa_da_nevoa": {
+  "w": 303,
+  "h": 224,
+  "ax": 152,
+  "ay": 218,
+  "kind": "beast",
+  "papel": "boss"
+ },
+ "sentinela_de_vitral": {
+  "w": 94,
+  "h": 192,
+  "ax": 47,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "serpente_prismatica": {
+  "w": 220,
+  "h": 192,
+  "ax": 110,
+  "ay": 186,
+  "kind": "serpent",
+  "papel": "comum"
+ },
+ "eco_quebrado": {
+  "w": 141,
+  "h": 192,
+  "ax": 70,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "esqueleto_de_vitral": {
+  "w": 89,
+  "h": 192,
+  "ax": 44,
+  "ay": 186,
+  "kind": "skeleton",
+  "papel": "comum"
+ },
+ "guardiao_estilhacado": {
+  "w": 87,
+  "h": 224,
+  "ax": 44,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "boss"
+ },
+ "escorpiao_de_ambar": {
+  "w": 219,
+  "h": 192,
+  "ax": 110,
+  "ay": 186,
+  "kind": "beast",
+  "papel": "comum"
+ },
+ "djinn_de_areia": {
+  "w": 82,
+  "h": 192,
+  "ax": 41,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "besouro_solar": {
+  "w": 193,
+  "h": 192,
+  "ax": 96,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "diabrete_de_areia": {
+  "w": 102,
+  "h": 192,
+  "ax": 51,
+  "ay": 186,
+  "kind": "imp",
+  "papel": "comum"
+ },
+ "imperatriz_escaravelho": {
+  "w": 142,
+  "h": 224,
+  "ax": 71,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "boss"
+ },
+ "yeti_errante": {
+  "w": 109,
+  "h": 192,
+  "ax": 54,
+  "ay": 186,
+  "kind": "golem",
+  "papel": "comum"
+ },
+ "espirito_da_nevasca": {
+  "w": 136,
+  "h": 192,
+  "ax": 68,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "lince_de_gelo": {
+  "w": 189,
+  "h": 192,
+  "ax": 94,
+  "ay": 186,
+  "kind": "beast",
+  "papel": "comum"
+ },
+ "caranguejo_de_gelo": {
+  "w": 247,
+  "h": 192,
+  "ax": 124,
+  "ay": 186,
+  "kind": "crab",
+  "papel": "comum"
+ },
+ "wyrm_do_inverno": {
+  "w": 175,
+  "h": 224,
+  "ax": 88,
+  "ay": 218,
+  "kind": "serpent",
+  "papel": "boss"
+ },
+ "sombra_faminta": {
+  "w": 138,
+  "h": 192,
+  "ax": 69,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "cavaleiro_oco": {
+  "w": 102,
+  "h": 192,
+  "ax": 51,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "fogo_fatuo_negro": {
+  "w": 197,
+  "h": 192,
+  "ax": 98,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "olho_vazio": {
+  "w": 127,
+  "h": 192,
+  "ax": 64,
+  "ay": 186,
+  "kind": "eye",
+  "papel": "comum"
+ },
+ "o_apagador": {
+  "w": 87,
+  "h": 224,
+  "ax": 44,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "boss"
+ },
+ "enguia_de_breu": {
+  "w": 206,
+  "h": 192,
+  "ax": 103,
+  "ay": 186,
+  "kind": "serpent",
+  "papel": "comum"
+ },
+ "marinheiro_afogado": {
+  "w": 105,
+  "h": 192,
+  "ax": 52,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "medusa_de_piche": {
+  "w": 110,
+  "h": 192,
+  "ax": 55,
+  "ay": 186,
+  "kind": "jelly",
+  "papel": "comum"
+ },
+ "caranguejo_de_piche": {
+  "w": 312,
+  "h": 192,
+  "ax": 156,
+  "ay": 186,
+  "kind": "crab",
+  "papel": "comum"
+ },
+ "leviata_de_piche": {
+  "w": 162,
+  "h": 224,
+  "ax": 81,
+  "ay": 218,
+  "kind": "serpent",
+  "papel": "boss"
+ },
+ "aranha_de_obsidiana": {
+  "w": 200,
+  "h": 192,
+  "ax": 100,
+  "ay": 186,
+  "kind": "spider",
+  "papel": "comum"
+ },
+ "golem_espelhado": {
+  "w": 111,
+  "h": 192,
+  "ax": 56,
+  "ay": 186,
+  "kind": "golem",
+  "papel": "comum"
+ },
+ "fada_partida": {
+  "w": 123,
+  "h": 192,
+  "ax": 62,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "cogumelo_cristalino": {
+  "w": 195,
+  "h": 192,
+  "ax": 98,
+  "ay": 186,
+  "kind": "mushroom",
+  "papel": "comum"
+ },
+ "rainha_tecela": {
+  "w": 220,
+  "h": 224,
+  "ax": 110,
+  "ay": 218,
+  "kind": "spider",
+  "papel": "boss"
+ },
+ "guarda_afogado": {
+  "w": 71,
+  "h": 192,
+  "ax": 36,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "polvo_de_lama": {
+  "w": 216,
+  "h": 192,
+  "ax": 108,
+  "ay": 186,
+  "kind": "blob",
+  "papel": "comum"
+ },
+ "medusa_lanterna": {
+  "w": 123,
+  "h": 192,
+  "ax": 62,
+  "ay": 186,
+  "kind": "jelly",
+  "papel": "comum"
+ },
+ "esqueleto_afogado": {
+  "w": 88,
+  "h": 192,
+  "ax": 44,
+  "ay": 186,
+  "kind": "skeleton",
+  "papel": "comum"
+ },
+ "arquiduque_afogado": {
+  "w": 215,
+  "h": 224,
+  "ax": 108,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "boss"
+ },
+ "salamandra_de_escoria": {
+  "w": 336,
+  "h": 192,
+  "ax": 168,
+  "ay": 186,
+  "kind": "serpent",
+  "papel": "comum"
+ },
+ "forjador_de_cinzas": {
+  "w": 152,
+  "h": 192,
+  "ax": 76,
+  "ay": 186,
+  "kind": "golem",
+  "papel": "comum"
+ },
+ "fagulha_rebelde": {
+  "w": 106,
+  "h": 192,
+  "ax": 53,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "diabrete_de_brasa": {
+  "w": 124,
+  "h": 192,
+  "ax": 62,
+  "ay": 186,
+  "kind": "imp",
+  "papel": "comum"
+ },
+ "o_primeiro_ferreiro": {
+  "w": 166,
+  "h": 224,
+  "ax": 83,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "boss"
+ },
+ "eco_da_primeira_luz": {
+  "w": 134,
+  "h": 192,
+  "ax": 67,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "sentinela_dourada": {
+  "w": 58,
+  "h": 192,
+  "ax": 29,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "cervo_de_luz": {
+  "w": 125,
+  "h": 192,
+  "ax": 62,
+  "ay": 186,
+  "kind": "beast",
+  "papel": "comum"
+ },
+ "planta_da_alvorada": {
+  "w": 148,
+  "h": 192,
+  "ax": 74,
+  "ay": 186,
+  "kind": "plant",
+  "papel": "comum"
+ },
+ "a_noite_que_resta": {
+  "w": 163,
+  "h": 224,
+  "ax": 82,
+  "ay": 218,
+  "kind": "wisp",
+  "papel": "boss"
+ },
+ "javali_rei_da_fuligem": {
+  "w": 197,
+  "h": 224,
+  "ax": 98,
+  "ay": 218,
+  "kind": "beast",
+  "papel": "field"
+ },
+ "mae_lodo": {
+  "w": 233,
+  "h": 224,
+  "ax": 116,
+  "ay": 218,
+  "kind": "blob",
+  "papel": "field"
+ },
+ "morcego_anciao_de_quartzo": {
+  "w": 215,
+  "h": 224,
+  "ax": 108,
+  "ay": 218,
+  "kind": "flyer",
+  "papel": "field"
+ },
+ "corvo_das_mil_penas": {
+  "w": 308,
+  "h": 224,
+  "ax": 154,
+  "ay": 218,
+  "kind": "flyer",
+  "papel": "field"
+ },
+ "serpente_de_vitral": {
+  "w": 260,
+  "h": 224,
+  "ax": 130,
+  "ay": 218,
+  "kind": "serpent",
+  "papel": "field"
+ },
+ "djinn_do_simum": {
+  "w": 113,
+  "h": 224,
+  "ax": 56,
+  "ay": 218,
+  "kind": "wisp",
+  "papel": "field"
+ },
+ "lince_branco_ancestral": {
+  "w": 218,
+  "h": 224,
+  "ax": 109,
+  "ay": 218,
+  "kind": "beast",
+  "papel": "field"
+ },
+ "cavaleiro_sem_nome": {
+  "w": 98,
+  "h": 224,
+  "ax": 49,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "field"
+ },
+ "medusa_rainha": {
+  "w": 143,
+  "h": 224,
+  "ax": 72,
+  "ay": 218,
+  "kind": "jelly",
+  "papel": "field"
+ },
+ "viuva_de_vidro": {
+  "w": 233,
+  "h": 224,
+  "ax": 116,
+  "ay": 218,
+  "kind": "spider",
+  "papel": "field"
+ },
+ "colosso_coralino": {
+  "w": 127,
+  "h": 224,
+  "ax": 64,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "field"
+ },
+ "salamandra_imperatriz": {
+  "w": 370,
+  "h": 224,
+  "ax": 185,
+  "ay": 218,
+  "kind": "serpent",
+  "papel": "field"
+ },
+ "arauto_do_crepusculo": {
+  "w": 109,
+  "h": 224,
+  "ax": 54,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "field"
+ },
+ "cogumelo_venenoso": {
+  "w": 208,
+  "h": 192,
+  "ax": 104,
+  "ay": 186,
+  "kind": "mushroom",
+  "papel": "comum"
+ },
+ "lodo_de_caverna": {
+  "w": 200,
+  "h": 192,
+  "ax": 100,
+  "ay": 186,
+  "kind": "blob",
+  "papel": "comum"
+ },
+ "cogumelo_guardiao": {
+  "w": 229,
+  "h": 224,
+  "ax": 114,
+  "ay": 218,
+  "kind": "mushroom",
+  "papel": "mini"
+ },
+ "mae_esporo": {
+  "w": 155,
+  "h": 224,
+  "ax": 78,
+  "ay": 218,
+  "kind": "plant",
+  "papel": "dboss"
+ },
+ "esqueleto_vigia": {
+  "w": 89,
+  "h": 192,
+  "ax": 44,
+  "ay": 186,
+  "kind": "skeleton",
+  "papel": "comum"
+ },
+ "olho_da_cripta": {
+  "w": 121,
+  "h": 192,
+  "ax": 60,
+  "ay": 186,
+  "kind": "eye",
+  "papel": "comum"
+ },
+ "morcego_ossudo": {
+  "w": 166,
+  "h": 192,
+  "ax": 83,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "arauto_ossudo": {
+  "w": 143,
+  "h": 224,
+  "ax": 72,
+  "ay": 218,
+  "kind": "skeleton",
+  "papel": "mini"
+ },
+ "rei_das_catacumbas": {
+  "w": 137,
+  "h": 224,
+  "ax": 68,
+  "ay": 218,
+  "kind": "skeleton",
+  "papel": "dboss"
+ },
+ "zangao_de_ambar": {
+  "w": 182,
+  "h": 192,
+  "ax": 91,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "planta_melifera": {
+  "w": 148,
+  "h": 192,
+  "ax": 74,
+  "ay": 186,
+  "kind": "plant",
+  "papel": "comum"
+ },
+ "guarda_da_colmeia": {
+  "w": 154,
+  "h": 224,
+  "ax": 77,
+  "ay": 218,
+  "kind": "imp",
+  "papel": "mini"
+ },
+ "rainha_colmeia": {
+  "w": 154,
+  "h": 224,
+  "ax": 77,
+  "ay": 218,
+  "kind": "imp",
+  "papel": "dboss"
+ },
+ "olho_gelido": {
+  "w": 127,
+  "h": 192,
+  "ax": 64,
+  "ay": 186,
+  "kind": "eye",
+  "papel": "comum"
+ },
+ "espirito_do_degelo": {
+  "w": 120,
+  "h": 192,
+  "ax": 60,
+  "ay": 186,
+  "kind": "wisp",
+  "papel": "comum"
+ },
+ "sentinela_de_gelo": {
+  "w": 131,
+  "h": 224,
+  "ax": 66,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "mini"
+ },
+ "caranguejo_rei_de_gelo": {
+  "w": 288,
+  "h": 224,
+  "ax": 144,
+  "ay": 218,
+  "kind": "crab",
+  "papel": "dboss"
+ },
+ "esqueleto_marujo": {
+  "w": 85,
+  "h": 192,
+  "ax": 42,
+  "ay": 186,
+  "kind": "skeleton",
+  "papel": "comum"
+ },
+ "medusa_das_profundezas": {
+  "w": 122,
+  "h": 192,
+  "ax": 61,
+  "ay": 186,
+  "kind": "jelly",
+  "papel": "comum"
+ },
+ "imediato_afogado": {
+  "w": 107,
+  "h": 224,
+  "ax": 54,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "mini"
+ },
+ "capitao_afogado": {
+  "w": 120,
+  "h": 224,
+  "ax": 60,
+  "ay": 218,
+  "kind": "skeleton",
+  "papel": "dboss"
+ },
+ "bau_mimico": {
+  "w": 172,
+  "h": 192,
+  "ax": 86,
+  "ay": 186,
+  "kind": "mimic",
+  "papel": "comum"
+ },
+ "guarda_do_cofre": {
+  "w": 75,
+  "h": 192,
+  "ax": 38,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "olho_do_tesouro": {
+  "w": 109,
+  "h": 192,
+  "ax": 54,
+  "ay": 186,
+  "kind": "eye",
+  "papel": "comum"
+ },
+ "mimico_anciao": {
+  "w": 200,
+  "h": 224,
+  "ax": 100,
+  "ay": 218,
+  "kind": "mimic",
+  "papel": "mini"
+ },
+ "mimico_dourado": {
+  "w": 201,
+  "h": 224,
+  "ax": 100,
+  "ay": 218,
+  "kind": "mimic",
+  "papel": "dboss"
+ },
+ "salamandra_menor": {
+  "w": 336,
+  "h": 192,
+  "ax": 168,
+  "ay": 186,
+  "kind": "serpent",
+  "papel": "comum"
+ },
+ "capataz_da_forja": {
+  "w": 177,
+  "h": 224,
+  "ax": 88,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "mini"
+ },
+ "ferreiro_de_cinzas": {
+  "w": 173,
+  "h": 224,
+  "ax": 86,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "dboss"
+ },
+ "broto_raivoso": {
+  "w": 154,
+  "h": 192,
+  "ax": 77,
+  "ay": 186,
+  "kind": "plant",
+  "papel": "comum"
+ },
+ "besouro_de_casca": {
+  "w": 258,
+  "h": 192,
+  "ax": 129,
+  "ay": 186,
+  "kind": "crab",
+  "papel": "comum"
+ },
+ "toco_ranzinza": {
+  "w": 170,
+  "h": 224,
+  "ax": 85,
+  "ay": 218,
+  "kind": "treant",
+  "papel": "mini"
+ },
+ "avo_raiz": {
+  "w": 126,
+  "h": 224,
+  "ax": 63,
+  "ay": 218,
+  "kind": "treant",
+  "papel": "dboss"
+ },
+ "golem_de_carvao": {
+  "w": 128,
+  "h": 192,
+  "ax": 64,
+  "ay": 186,
+  "kind": "golem",
+  "papel": "comum"
+ },
+ "morcego_de_mina": {
+  "w": 166,
+  "h": 192,
+  "ax": 83,
+  "ay": 186,
+  "kind": "flyer",
+  "papel": "comum"
+ },
+ "verme_de_cascalho": {
+  "w": 121,
+  "h": 192,
+  "ax": 60,
+  "ay": 186,
+  "kind": "worm",
+  "papel": "comum"
+ },
+ "capataz_de_pedra": {
+  "w": 169,
+  "h": 224,
+  "ax": 84,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "mini"
+ },
+ "verme_devorador": {
+  "w": 140,
+  "h": 224,
+  "ax": 70,
+  "ay": 218,
+  "kind": "worm",
+  "papel": "dboss"
+ },
+ "livro_mordedor": {
+  "w": 223,
+  "h": 192,
+  "ax": 112,
+  "ay": 186,
+  "kind": "tome",
+  "papel": "comum"
+ },
+ "sentinela_de_leitura": {
+  "w": 108,
+  "h": 192,
+  "ax": 54,
+  "ay": 186,
+  "kind": "knight",
+  "papel": "comum"
+ },
+ "olho_bibliotecario": {
+  "w": 127,
+  "h": 192,
+  "ax": 64,
+  "ay": 186,
+  "kind": "eye",
+  "papel": "comum"
+ },
+ "bibliotecaria_de_vitral": {
+  "w": 143,
+  "h": 224,
+  "ax": 72,
+  "ay": 218,
+  "kind": "wisp",
+  "papel": "mini"
+ },
+ "grimorio_desperto": {
+  "w": 231,
+  "h": 224,
+  "ax": 116,
+  "ay": 218,
+  "kind": "tome",
+  "papel": "dboss"
+ },
+ "boca_do_vazio": {
+  "w": 156,
+  "h": 192,
+  "ax": 78,
+  "ay": 186,
+  "kind": "maw",
+  "papel": "comum"
+ },
+ "carcereiro_oco": {
+  "w": 111,
+  "h": 224,
+  "ax": 56,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "mini"
+ },
+ "devorador_de_ecos": {
+  "w": 184,
+  "h": 224,
+  "ax": 92,
+  "ay": 218,
+  "kind": "maw",
+  "papel": "dboss"
+ },
+ "livro_de_vidro": {
+  "w": 223,
+  "h": 192,
+  "ax": 112,
+  "ay": 186,
+  "kind": "tome",
+  "papel": "comum"
+ },
+ "sentinela_espelhada": {
+  "w": 134,
+  "h": 224,
+  "ax": 67,
+  "ay": 218,
+  "kind": "golem",
+  "papel": "mini"
+ },
+ "matriarca_de_obsidiana": {
+  "w": 220,
+  "h": 224,
+  "ax": 110,
+  "ay": 218,
+  "kind": "spider",
+  "papel": "dboss"
+ },
+ "boca_do_crepusculo": {
+  "w": 156,
+  "h": 192,
+  "ax": 78,
+  "ay": 186,
+  "kind": "maw",
+  "papel": "comum"
+ },
+ "guarda_do_crepusculo": {
+  "w": 101,
+  "h": 224,
+  "ax": 50,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "mini"
+ },
+ "o_rei_sem_aurora": {
+  "w": 87,
+  "h": 224,
+  "ax": 44,
+  "ay": 218,
+  "kind": "knight",
+  "papel": "dboss"
+ }
+}

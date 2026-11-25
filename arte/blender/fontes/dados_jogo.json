@@ -1,0 +1,4714 @@
+{
+ "ARCH": {
+  "none": {
+   "nome": "Portador",
+   "cloak": "#5b5246",
+   "dark": "#3d362e",
+   "sk": "#cdbb97",
+   "pw": {
+    "FOR": 0.006,
+    "INT": 0.006,
+    "ESP": 0.006,
+    "DES": 0.006
+   },
+   "auto": {
+    "FOR": 1,
+    "VIG": 1,
+    "INT": 1,
+    "ESP": 1,
+    "DES": 1
+   },
+   "hp": 1,
+   "def": 1,
+   "aps": 1
+  },
+  "guerreiro": {
+   "nome": "Guerreiro",
+   "cloak": "#7a3b2a",
+   "dark": "#4e251b",
+   "sk": "#e08a5a",
+   "pw": {
+    "FOR": 0.024,
+    "DES": 0.004
+   },
+   "auto": {
+    "FOR": 2,
+    "VIG": 1
+   },
+   "hp": 1.25,
+   "def": 1.2,
+   "aps": 1.1,
+   "desc": "Corpo a corpo. Muita vida, defesa e golpes pesados."
+  },
+  "arcanista": {
+   "nome": "Arcanista",
+   "cloak": "#34406e",
+   "dark": "#222a4a",
+   "sk": "#93a9f2",
+   "pw": {
+    "INT": 0.026,
+    "ESP": 0.003
+   },
+   "auto": {
+    "INT": 2.2,
+    "VIG": 0.5,
+    "DES": 0.3
+   },
+   "hp": 0.85,
+   "def": 0.85,
+   "aps": 0.9,
+   "desc": "Magia. O maior dano, a menor defesa."
+  },
+  "batedor": {
+   "nome": "Batedor",
+   "cloak": "#3d5a34",
+   "dark": "#283b22",
+   "sk": "#93c776",
+   "pw": {
+    "DES": 0.02,
+    "FOR": 0.004
+   },
+   "auto": {
+    "DES": 2.2,
+    "FOR": 0.4,
+    "VIG": 0.4
+   },
+   "hp": 0.95,
+   "def": 0.95,
+   "aps": 1.25,
+   "desc": "À distância. Ataques rápidos e muitos críticos."
+  },
+  "devoto": {
+   "nome": "Devoto",
+   "cloak": "#8a7a52",
+   "dark": "#5c5136",
+   "sk": "#f0d27a",
+   "pw": {
+    "ESP": 0.022,
+    "INT": 0.004
+   },
+   "auto": {
+    "ESP": 2,
+    "VIG": 1
+   },
+   "hp": 1.1,
+   "def": 1.1,
+   "aps": 0.95,
+   "desc": "Fé. Cura a si mesmo e quase nunca cai."
+  }
+ },
+ "CLASSES": {
+  "guerreiro": {
+   "arch": "guerreiro",
+   "base": true,
+   "nome": "Guerreiro",
+   "skills": [
+    {
+     "nome": "Golpe Pesado",
+     "cd": 4,
+     "type": "hit",
+     "ratio": 2.2
+    }
+   ],
+   "passive": {
+    "hpPct": 0.1
+   }
+  },
+  "arcanista": {
+   "arch": "arcanista",
+   "base": true,
+   "nome": "Arcanista",
+   "skills": [
+    {
+     "nome": "Dardo Arcano",
+     "cd": 4,
+     "type": "hit",
+     "ratio": 2.4
+    }
+   ],
+   "passive": {
+    "dmgPct": 0.1
+   }
+  },
+  "batedor": {
+   "arch": "batedor",
+   "base": true,
+   "nome": "Batedor",
+   "skills": [
+    {
+     "nome": "Tiro Certeiro",
+     "cd": 3.5,
+     "type": "hit",
+     "ratio": 2,
+     "critBonus": 0.25
+    }
+   ],
+   "passive": {
+    "crit": 0.05
+   }
+  },
+  "devoto": {
+   "arch": "devoto",
+   "base": true,
+   "nome": "Devoto",
+   "skills": [
+    {
+     "nome": "Prece Curativa",
+     "cd": 8,
+     "type": "heal",
+     "value": 0.25,
+     "when": 0.7
+    },
+    {
+     "nome": "Golpe Sagrado",
+     "cd": 5,
+     "type": "hit",
+     "ratio": 2.2
+    }
+   ],
+   "passive": {
+    "regenPct": 0.5
+   }
+  },
+  "baluarte": {
+   "arch": "guerreiro",
+   "tema": "Escudo",
+   "desc": "Aguenta tudo: escudo, investidas que atordoam e golpes de bastião.",
+   "passive": {
+    "defPct": 0.2,
+    "hpPct": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Baluarte",
+     "skill": {
+      "nome": "Muralha",
+      "cd": 12,
+      "type": "shield",
+      "value": 0.5,
+      "dur": 4
+     }
+    },
+    {
+     "nome": "Guardião de Aço",
+     "skill": {
+      "nome": "Investida de Escudo",
+      "cd": 8,
+      "type": "stun",
+      "ratio": 2.6,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Mestre do Escudo",
+     "skill": {
+      "nome": "Golpe de Bastião",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 4
+     }
+    },
+    {
+     "nome": "Muralha Eterna",
+     "skill": {
+      "nome": "Juízo do Bastião",
+      "cd": 18,
+      "type": "hit",
+      "ratio": 7.5
+     }
+    }
+   ]
+  },
+  "ceifador": {
+   "arch": "guerreiro",
+   "tema": "Foice",
+   "desc": "Golpes largos e críticos pesados; termina quem já está caindo.",
+   "passive": {
+    "critDmg": 0.15
+   },
+   "tiers": [
+    {
+     "nome": "Ceifador",
+     "skill": {
+      "nome": "Arco de Ceifa",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.6
+     }
+    },
+    {
+     "nome": "Ceifador de Almas",
+     "skill": {
+      "nome": "Colheita Sangrenta",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 0.9,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Mestre da Foice",
+     "skill": {
+      "nome": "Foice Espectral",
+      "cd": 9,
+      "type": "execute",
+      "ratio": 3,
+      "mult": 2.5
+     }
+    },
+    {
+     "nome": "Senhor da Colheita",
+     "skill": {
+      "nome": "Última Colheita",
+      "cd": 18,
+      "type": "hit",
+      "ratio": 8,
+      "critBonus": 0.2
+     }
+    }
+   ]
+  },
+  "duelista": {
+   "arch": "guerreiro",
+   "tema": "Esgrima",
+   "desc": "Velocidade e precisão: estocadas em sequência e críticos certeiros.",
+   "passive": {
+    "apsPct": 0.12
+   },
+   "tiers": [
+    {
+     "nome": "Duelista",
+     "skill": {
+      "nome": "Estocada Tripla",
+      "cd": 5,
+      "type": "multi",
+      "ratio": 0.95,
+      "hits": 3
+     }
+    },
+    {
+     "nome": "Esgrimista",
+     "skill": {
+      "nome": "Riposta",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 2.6,
+      "critBonus": 0.3
+     }
+    },
+    {
+     "nome": "Mestre de Armas",
+     "skill": {
+      "nome": "Dança das Lâminas",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 0.8,
+      "hits": 6
+     }
+    },
+    {
+     "nome": "Lâmina Lendária",
+     "skill": {
+      "nome": "Estocada Perfeita",
+      "cd": 16,
+      "type": "hit",
+      "ratio": 7,
+      "critBonus": 0.5,
+      "pierce": 0.5
+     }
+    }
+   ]
+  },
+  "furia": {
+   "arch": "guerreiro",
+   "tema": "Fúria",
+   "desc": "Dois machados, frenesi e roubo de vida: quanto mais bate, mais aguenta.",
+   "passive": {
+    "lifesteal": 0.04
+   },
+   "tiers": [
+    {
+     "nome": "Fúria Rubra",
+     "skill": {
+      "nome": "Frenesi",
+      "cd": 15,
+      "type": "buff",
+      "stat": "apsPct",
+      "value": 0.4,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Sanguinário",
+     "skill": {
+      "nome": "Machadada Dupla",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 1.4,
+      "hits": 2
+     }
+    },
+    {
+     "nome": "Mestre da Fúria",
+     "skill": {
+      "nome": "Ciclone de Machados",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 0.9,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Tempestade Rubra",
+     "skill": {
+      "nome": "Massacre Rubro",
+      "cd": 16,
+      "type": "hit",
+      "ratio": 7,
+      "heal": 0.3
+     }
+    }
+   ]
+  },
+  "estandarte": {
+   "arch": "guerreiro",
+   "tema": "Estandarte",
+   "desc": "Lidera a carga: bandeira que fortalece, investidas e lança.",
+   "passive": {
+    "hpPct": 0.08,
+    "xpPct": 0.05
+   },
+   "tiers": [
+    {
+     "nome": "Porta-Estandarte",
+     "skill": {
+      "nome": "Estandarte Erguido",
+      "cd": 18,
+      "type": "buff",
+      "stats": {
+       "dmgPct": 0.2,
+       "defPct": 0.25
+      },
+      "dur": 8
+     }
+    },
+    {
+     "nome": "Cavaleiro do Estandarte",
+     "skill": {
+      "nome": "Carga da Vanguarda",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 2.4,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Comandante de Guerra",
+     "skill": {
+      "nome": "Lança da Bandeira",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 4.2,
+      "pierce": 0.3
+     }
+    },
+    {
+     "nome": "Lenda da Vanguarda",
+     "skill": {
+      "nome": "Grito do Exército",
+      "cd": 16,
+      "type": "multi",
+      "ratio": 1.2,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "quebraescudos": {
+   "arch": "guerreiro",
+   "tema": "Martelo",
+   "desc": "Atravessa armaduras e faz o chão tremer.",
+   "passive": {
+    "armorPen": 0.15
+   },
+   "tiers": [
+    {
+     "nome": "Quebra-Escudos",
+     "skill": {
+      "nome": "Golpe Fendente",
+      "cd": 9,
+      "type": "mark",
+      "ratio": 2,
+      "value": 0.25,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Destruidor de Muralhas",
+     "skill": {
+      "nome": "Martelada Sísmica",
+      "cd": 8,
+      "type": "stun",
+      "ratio": 2.8,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Mestre do Martelo",
+     "skill": {
+      "nome": "Esmagar Armadura",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.5,
+      "pierce": 0.6
+     }
+    },
+    {
+     "nome": "Arauto do Terremoto",
+     "skill": {
+      "nome": "Terremoto",
+      "cd": 18,
+      "type": "hit",
+      "ratio": 8
+     }
+    }
+   ]
+  },
+  "campeao": {
+   "arch": "guerreiro",
+   "tema": "Arena",
+   "desc": "Lutador de arena: espadão, giros e golpes de misericórdia.",
+   "passive": {
+    "killHeal": 0.05
+   },
+   "tiers": [
+    {
+     "nome": "Campeão do Fosso",
+     "skill": {
+      "nome": "Golpe de Misericórdia",
+      "cd": 6,
+      "type": "execute",
+      "ratio": 2.4,
+      "mult": 2.5
+     }
+    },
+    {
+     "nome": "Gladiador Veterano",
+     "skill": {
+      "nome": "Rodopio do Gladiador",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 3
+     }
+    },
+    {
+     "nome": "Mestre da Arena",
+     "skill": {
+      "nome": "Investida do Campeão",
+      "cd": 10,
+      "type": "stun",
+      "ratio": 3,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Campeão Imortal",
+     "skill": {
+      "nome": "Aplauso Final",
+      "cd": 15,
+      "type": "execute",
+      "ratio": 5,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "farpada": {
+   "arch": "guerreiro",
+   "tema": "Espinhos",
+   "desc": "Armadura farpada: quem bate nele se machuca.",
+   "passive": {
+    "thorns": 0.35
+   },
+   "tiers": [
+    {
+     "nome": "Couraça Farpada",
+     "skill": {
+      "nome": "Pele de Ferro",
+      "cd": 14,
+      "type": "barrier",
+      "value": 0.2,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Pele de Espinhos",
+     "skill": {
+      "nome": "Espinhos Rasgantes",
+      "cd": 10,
+      "type": "dot",
+      "ratio": 0.7,
+      "ticks": 6,
+      "every": 1
+     }
+    },
+    {
+     "nome": "Mestre dos Espinhos",
+     "skill": {
+      "nome": "Investida Farpada",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 4
+     }
+    },
+    {
+     "nome": "Colosso Farpado",
+     "skill": {
+      "nome": "Explosão de Espinhos",
+      "cd": 16,
+      "type": "multi",
+      "ratio": 1.3,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "corrente": {
+   "arch": "guerreiro",
+   "tema": "Correntes",
+   "desc": "Prende o inimigo com correntes e o atordoa.",
+   "passive": {
+    "defPct": 0.12,
+    "stunChance": 0.04
+   },
+   "tiers": [
+    {
+     "nome": "Guardião de Corrente",
+     "skill": {
+      "nome": "Corrente Pesada",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 2.4,
+      "stun": 1.6
+     }
+    },
+    {
+     "nome": "Carcereiro de Ferro",
+     "skill": {
+      "nome": "Puxão de Aço",
+      "cd": 8,
+      "type": "hit",
+      "ratio": 3,
+      "slow": 0.3,
+      "slowDur": 3
+     }
+    },
+    {
+     "nome": "Senhor dos Grilhões",
+     "skill": {
+      "nome": "Grilhões",
+      "cd": 10,
+      "type": "mark",
+      "ratio": 1.6,
+      "value": 0.25,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Tirano das Correntes",
+     "skill": {
+      "nome": "Tormenta de Elos",
+      "cd": 9,
+      "type": "multi",
+      "ratio": 0.9,
+      "hits": 5
+     }
+    }
+   ]
+  },
+  "gemeas": {
+   "arch": "guerreiro",
+   "tema": "Lâminas gêmeas",
+   "desc": "Ataca rápido com duas espadas curvas.",
+   "passive": {
+    "double": 0.06,
+    "eva": 0.03
+   },
+   "tiers": [
+    {
+     "nome": "Lâminas Gêmeas",
+     "skill": {
+      "nome": "Redemoinho de Aço",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 0.8,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Duelista de Aço Duplo",
+     "skill": {
+      "nome": "Corte Cruzado",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 2.8,
+      "critBonus": 0.15
+     }
+    },
+    {
+     "nome": "Vendaval de Aço",
+     "skill": {
+      "nome": "Lâminas em Leque",
+      "cd": 9,
+      "type": "multi",
+      "ratio": 0.7,
+      "hits": 6
+     }
+    },
+    {
+     "nome": "Tempestade Gêmea",
+     "skill": {
+      "nome": "Mil Cortes",
+      "cd": 14,
+      "type": "multi",
+      "ratio": 0.6,
+      "hits": 10
+     }
+    }
+   ]
+  },
+  "brasa": {
+   "arch": "guerreiro",
+   "tema": "Brasa",
+   "desc": "Golpes em chamas que curam quem os desfere.",
+   "passive": {
+    "lifesteal": 0.03,
+    "hpPct": 0.06
+   },
+   "tiers": [
+    {
+     "nome": "Cavaleiro de Brasa",
+     "skill": {
+      "nome": "Golpe Abrasador",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 2.6,
+      "heal": 0.35
+     }
+    },
+    {
+     "nome": "Cavaleiro Incandescente",
+     "skill": {
+      "nome": "Lâmina Ardente",
+      "cd": 9,
+      "type": "dot",
+      "ratio": 0.6,
+      "ticks": 6,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Guardião da Fornalha",
+     "skill": {
+      "nome": "Erupção",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 3.6
+     }
+    },
+    {
+     "nome": "Coração de Magma",
+     "skill": {
+      "nome": "Chama Eterna",
+      "cd": 12,
+      "type": "hit",
+      "ratio": 4.4,
+      "heal": 0.3
+     }
+    }
+   ]
+  },
+  "tecelao": {
+   "arch": "arcanista",
+   "tema": "Fogo",
+   "desc": "Fogo puro: fagulhas, bolas de fogo e, no fim, um meteoro.",
+   "passive": {
+    "dmgPct": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Piromaníaco",
+     "skill": {
+      "nome": "Chuva de Fagulhas",
+      "cd": 9,
+      "type": "dot",
+      "ratio": 1.1,
+      "ticks": 4,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Discípulo do Fogo",
+     "skill": {
+      "nome": "Bola de Fogo",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.8
+     }
+    },
+    {
+     "nome": "Mestre do Fogo",
+     "skill": {
+      "nome": "Coluna de Chamas",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Avatar das Chamas",
+     "skill": {
+      "nome": "Meteoro",
+      "cd": 20,
+      "type": "hit",
+      "ratio": 9
+     }
+    }
+   ]
+  },
+  "glacial": {
+   "arch": "arcanista",
+   "tema": "Gelo",
+   "desc": "Gelo que fere e prende: lanças, nevasca e prisões congeladas.",
+   "passive": {
+    "eva": 0.06
+   },
+   "tiers": [
+    {
+     "nome": "Vidente Glacial",
+     "skill": {
+      "nome": "Lança de Geada",
+      "cd": 8,
+      "type": "hit",
+      "ratio": 2.8,
+      "slow": 0.35,
+      "slowDur": 4
+     }
+    },
+    {
+     "nome": "Adepto do Gelo",
+     "skill": {
+      "nome": "Nevasca",
+      "cd": 10,
+      "type": "dot",
+      "ratio": 0.8,
+      "ticks": 6,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Mestre do Inverno",
+     "skill": {
+      "nome": "Prisão de Gelo",
+      "cd": 11,
+      "type": "stun",
+      "ratio": 3,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Avatar do Inverno",
+     "skill": {
+      "nome": "Era do Gelo",
+      "cd": 20,
+      "type": "hit",
+      "ratio": 8.5,
+      "slow": 0.5,
+      "slowDur": 5
+     }
+    }
+   ]
+  },
+  "tempestario": {
+   "arch": "arcanista",
+   "tema": "Raio",
+   "desc": "Raios encadeados e trovões que atordoam.",
+   "passive": {
+    "crit": 0.05
+   },
+   "tiers": [
+    {
+     "nome": "Tempestário",
+     "skill": {
+      "nome": "Raio Encadeado",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.4
+     }
+    },
+    {
+     "nome": "Discípulo do Trovão",
+     "skill": {
+      "nome": "Faísca Rápida",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 0.8,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Mestre dos Raios",
+     "skill": {
+      "nome": "Trovão Atordoante",
+      "cd": 10,
+      "type": "stun",
+      "ratio": 3.2,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Avatar da Tempestade",
+     "skill": {
+      "nome": "Fúria dos Céus",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.5,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "ocultista": {
+   "arch": "arcanista",
+   "tema": "Almas",
+   "desc": "Rouba a vida do inimigo e amaldiçoa devagar.",
+   "passive": {
+    "lifesteal": 0.03
+   },
+   "tiers": [
+    {
+     "nome": "Ocultista",
+     "skill": {
+      "nome": "Sifão de Alma",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 2,
+      "heal": 0.5
+     }
+    },
+    {
+     "nome": "Adepto das Sombras",
+     "skill": {
+      "nome": "Maldição Lenta",
+      "cd": 10,
+      "type": "dot",
+      "ratio": 0.7,
+      "ticks": 8,
+      "every": 1
+     }
+    },
+    {
+     "nome": "Mestre das Almas",
+     "skill": {
+      "nome": "Lança de Almas",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 4.6,
+      "pierce": 0.3
+     }
+    },
+    {
+     "nome": "Senhor do Véu",
+     "skill": {
+      "nome": "Colheita do Véu",
+      "cd": 18,
+      "type": "hit",
+      "ratio": 7.5,
+      "heal": 0.5
+     }
+    }
+   ]
+  },
+  "geomante": {
+   "arch": "arcanista",
+   "tema": "Terra",
+   "desc": "Mago resistente: rochas, pilares de granito e a fúria da montanha.",
+   "passive": {
+    "defPct": 0.1,
+    "hpPct": 0.08
+   },
+   "tiers": [
+    {
+     "nome": "Geomante",
+     "skill": {
+      "nome": "Punho de Pedra",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 3.2,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Discípulo da Pedra",
+     "skill": {
+      "nome": "Chuva de Rochas",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Mestre da Terra",
+     "skill": {
+      "nome": "Pilar de Granito",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.8
+     }
+    },
+    {
+     "nome": "Avatar da Montanha",
+     "skill": {
+      "nome": "Fúria da Montanha",
+      "cd": 20,
+      "type": "multi",
+      "ratio": 2,
+      "hits": 5
+     }
+    }
+   ]
+  },
+  "escriba": {
+   "arch": "arcanista",
+   "tema": "Runas",
+   "desc": "Selos que enfraquecem e runas que explodem; aprende mais rápido.",
+   "passive": {
+    "xpPct": 0.06,
+    "dmgPct": 0.06
+   },
+   "tiers": [
+    {
+     "nome": "Escriba Arcano",
+     "skill": {
+      "nome": "Selo de Ruína",
+      "cd": 10,
+      "type": "mark",
+      "ratio": 1.8,
+      "value": 0.35,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Adepto das Runas",
+     "skill": {
+      "nome": "Runa Explosiva",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.6
+     }
+    },
+    {
+     "nome": "Arquimago Rúnico",
+     "skill": {
+      "nome": "Círculo de Runas",
+      "cd": 11,
+      "type": "dot",
+      "ratio": 1,
+      "ticks": 6,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Lenda Rúnica",
+     "skill": {
+      "nome": "Palavra de Poder",
+      "cd": 18,
+      "type": "hit",
+      "ratio": 8,
+      "pierce": 0.5
+     }
+    }
+   ]
+  },
+  "enxame": {
+   "arch": "arcanista",
+   "tema": "Enxame",
+   "desc": "Invoca fagulhas vivas que atacam por você.",
+   "passive": {
+    "crit": 0.05,
+    "critDmg": 0.12
+   },
+   "tiers": [
+    {
+     "nome": "Chamador de Fagulhas",
+     "skill": {
+      "nome": "Enxame de Fagulhas",
+      "cd": 14,
+      "type": "dot",
+      "ratio": 0.6,
+      "ticks": 10,
+      "every": 0.5,
+      "pet": true,
+      "petName": "O enxame de fagulhas"
+     }
+    },
+    {
+     "nome": "Pastor do Enxame",
+     "skill": {
+      "nome": "Fagulha Saltitante",
+      "cd": 7,
+      "type": "multi",
+      "ratio": 0.7,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Mestre das Brasas Vivas",
+     "skill": {
+      "nome": "Nuvem Ardente",
+      "cd": 14,
+      "type": "dot",
+      "ratio": 1,
+      "ticks": 8,
+      "every": 0.5,
+      "pet": true,
+      "petName": "A nuvem de brasas"
+     }
+    },
+    {
+     "nome": "Coração do Enxame",
+     "skill": {
+      "nome": "Revoada Incandescente",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.3,
+      "hits": 7
+     }
+    }
+   ]
+  },
+  "prismatico": {
+   "arch": "arcanista",
+   "tema": "Luz",
+   "desc": "Feixes de luz em sequência e golpes que cegam.",
+   "passive": {
+    "double": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Prismático",
+     "skill": {
+      "nome": "Feixe Prismático",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 0.75,
+      "hits": 6
+     }
+    },
+    {
+     "nome": "Discípulo da Luz",
+     "skill": {
+      "nome": "Lança de Luz",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.8
+     }
+    },
+    {
+     "nome": "Mestre dos Prismas",
+     "skill": {
+      "nome": "Espelho Cegante",
+      "cd": 10,
+      "type": "stun",
+      "ratio": 2.6,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Lenda Prismática",
+     "skill": {
+      "nome": "Espectro Total",
+      "cd": 20,
+      "type": "multi",
+      "ratio": 1.4,
+      "hits": 7
+     }
+    }
+   ]
+  },
+  "relojoeiro": {
+   "arch": "arcanista",
+   "tema": "Tempo",
+   "desc": "Dobra o tempo para atacar mais rápido.",
+   "passive": {
+    "apsPct": 0.06,
+    "eva": 0.03
+   },
+   "tiers": [
+    {
+     "nome": "Relojoeiro Arcano",
+     "skill": {
+      "nome": "Ponteiro Veloz",
+      "cd": 16,
+      "type": "buff",
+      "stat": "apsPct",
+      "value": 0.35,
+      "dur": 8
+     }
+    },
+    {
+     "nome": "Mestre das Horas",
+     "skill": {
+      "nome": "Badalada",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3
+     }
+    },
+    {
+     "nome": "Senhor do Pêndulo",
+     "skill": {
+      "nome": "Pêndulo",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Guardião do Instante Final",
+     "skill": {
+      "nome": "Último Segundo",
+      "cd": 8,
+      "type": "execute",
+      "ratio": 2.6,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "espelhos": {
+   "arch": "arcanista",
+   "tema": "Espelhos",
+   "desc": "Cria reflexos que repetem seus golpes.",
+   "passive": {
+    "double": 0.07,
+    "eva": 0.03
+   },
+   "tiers": [
+    {
+     "nome": "Conjurador de Espelhos",
+     "skill": {
+      "nome": "Reflexo Duplo",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 1.5,
+      "hits": 2
+     }
+    },
+    {
+     "nome": "Ilusionista de Prata",
+     "skill": {
+      "nome": "Estilhaço Refletido",
+      "cd": 8,
+      "type": "hit",
+      "ratio": 3,
+      "pierce": 0.3
+     }
+    },
+    {
+     "nome": "Senhor dos Reflexos",
+     "skill": {
+      "nome": "Salão de Espelhos",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 0.7,
+      "hits": 6
+     }
+    },
+    {
+     "nome": "Mil Faces",
+     "skill": {
+      "nome": "Prisma Partido",
+      "cd": 11,
+      "type": "dot",
+      "ratio": 0.8,
+      "ticks": 6,
+      "every": 0.5
+     }
+    }
+   ]
+  },
+  "lunar": {
+   "arch": "arcanista",
+   "tema": "Lua",
+   "desc": "Feixes de luar que acham pontos fracos.",
+   "passive": {
+    "crit": 0.04,
+    "critDmg": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Vidente Lunar",
+     "skill": {
+      "nome": "Feixe Lunar",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.2,
+      "critBonus": 0.25
+     }
+    },
+    {
+     "nome": "Guardião das Fases",
+     "skill": {
+      "nome": "Lua Crescente",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 3
+     }
+    },
+    {
+     "nome": "Arauto do Eclipse",
+     "skill": {
+      "nome": "Eclipse",
+      "cd": 10,
+      "type": "mark",
+      "ratio": 2,
+      "value": 0.3,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Soberano da Lua Cheia",
+     "skill": {
+      "nome": "Lua de Sangue",
+      "cd": 12,
+      "type": "hit",
+      "ratio": 5,
+      "critBonus": 0.3
+     }
+    }
+   ]
+  },
+  "elite": {
+   "arch": "batedor",
+   "tema": "Precisão",
+   "desc": "Tiros longos que atravessam armaduras e acertam pontos fracos.",
+   "passive": {
+    "critDmg": 0.2
+   },
+   "tiers": [
+    {
+     "nome": "Atirador de Elite",
+     "skill": {
+      "nome": "Tiro Perfurante",
+      "cd": 8,
+      "type": "hit",
+      "ratio": 4,
+      "pierce": 0.6
+     }
+    },
+    {
+     "nome": "Franco-Atirador",
+     "skill": {
+      "nome": "Tiro na Cabeça",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.2,
+      "critBonus": 0.5
+     }
+    },
+    {
+     "nome": "Mestre Atirador",
+     "skill": {
+      "nome": "Rajada Precisa",
+      "cd": 9,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Lenda do Arco Longo",
+     "skill": {
+      "nome": "Disparo Fatal",
+      "cd": 16,
+      "type": "execute",
+      "ratio": 5,
+      "mult": 3,
+      "critBonus": 0.3
+     }
+    }
+   ]
+  },
+  "armadilheiro": {
+   "arch": "batedor",
+   "tema": "Armadilhas",
+   "desc": "Espinhos, redes e minas; ganha mais ouro por onde passa.",
+   "passive": {
+    "goldPct": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Armadilheiro",
+     "skill": {
+      "nome": "Armadilha de Espinhos",
+      "cd": 10,
+      "type": "dot",
+      "ratio": 0.7,
+      "ticks": 6,
+      "every": 1
+     }
+    },
+    {
+     "nome": "Caçador de Armadilhas",
+     "skill": {
+      "nome": "Rede Pesada",
+      "cd": 10,
+      "type": "stun",
+      "ratio": 2,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Mestre das Armadilhas",
+     "skill": {
+      "nome": "Mina Explosiva",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.6
+     }
+    },
+    {
+     "nome": "Lenda da Caçada",
+     "skill": {
+      "nome": "Campo Minado",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.5,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "trilheiro": {
+   "arch": "batedor",
+   "tema": "Saraivada",
+   "desc": "Muitas flechas, muito rápido.",
+   "passive": {
+    "apsPct": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Trilheiro",
+     "skill": {
+      "nome": "Saraivada",
+      "cd": 7,
+      "type": "multi",
+      "ratio": 0.75,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Patrulheiro",
+     "skill": {
+      "nome": "Flecha Dupla",
+      "cd": 5,
+      "type": "multi",
+      "ratio": 1.3,
+      "hits": 2
+     }
+    },
+    {
+     "nome": "Mestre da Trilha",
+     "skill": {
+      "nome": "Chuva de Flechas",
+      "cd": 12,
+      "type": "multi",
+      "ratio": 0.8,
+      "hits": 8
+     }
+    },
+    {
+     "nome": "Lenda das Trilhas",
+     "skill": {
+      "nome": "Tempestade de Flechas",
+      "cd": 20,
+      "type": "multi",
+      "ratio": 0.95,
+      "hits": 10
+     }
+    }
+   ]
+  },
+  "domador": {
+   "arch": "batedor",
+   "tema": "Matilha",
+   "desc": "Luta ao lado de um lobo; a matilha cresce a cada estágio.",
+   "passive": {
+    "eva": 0.05
+   },
+   "tiers": [
+    {
+     "nome": "Domador",
+     "skill": {
+      "nome": "Companheiro Lobo",
+      "cd": 14,
+      "type": "dot",
+      "ratio": 0.6,
+      "ticks": 8,
+      "every": 1,
+      "pet": true,
+      "petName": "O lobo"
+     }
+    },
+    {
+     "nome": "Irmão dos Lobos",
+     "skill": {
+      "nome": "Lança Arremessada",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.4
+     }
+    },
+    {
+     "nome": "Mestre da Matilha",
+     "skill": {
+      "nome": "Uivo da Matilha",
+      "cd": 14,
+      "type": "dot",
+      "ratio": 1,
+      "ticks": 8,
+      "every": 0.5,
+      "pet": true,
+      "petName": "A matilha"
+     }
+    },
+    {
+     "nome": "Alfa da Floresta",
+     "skill": {
+      "nome": "Caçada Selvagem",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.5,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "besteiro": {
+   "arch": "batedor",
+   "tema": "Besta",
+   "desc": "Virotes pesados e lentos que derrubam qualquer coisa.",
+   "passive": {
+    "armorPen": 0.12
+   },
+   "tiers": [
+    {
+     "nome": "Besteiro de Cerco",
+     "skill": {
+      "nome": "Virote Pesado",
+      "cd": 12,
+      "type": "hit",
+      "ratio": 5,
+      "pierce": 0.3
+     }
+    },
+    {
+     "nome": "Artilheiro",
+     "skill": {
+      "nome": "Virote Atordoante",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 2.6,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Mestre da Besta",
+     "skill": {
+      "nome": "Virotes em Leque",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 1.1,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Lenda do Cerco",
+     "skill": {
+      "nome": "Balista",
+      "cd": 20,
+      "type": "hit",
+      "ratio": 9,
+      "pierce": 0.5
+     }
+    }
+   ]
+  },
+  "errante": {
+   "arch": "batedor",
+   "tema": "Sombras",
+   "desc": "Adagas nas costas: esquiva, golpes duplos e execuções.",
+   "passive": {
+    "eva": 0.06,
+    "double": 0.05
+   },
+   "tiers": [
+    {
+     "nome": "Sombra Errante",
+     "skill": {
+      "nome": "Golpe pelas Costas",
+      "cd": 6,
+      "type": "execute",
+      "ratio": 2.2,
+      "mult": 3,
+      "critBonus": 0.2
+     }
+    },
+    {
+     "nome": "Lâmina Oculta",
+     "skill": {
+      "nome": "Adagas Gêmeas",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 3
+     }
+    },
+    {
+     "nome": "Mestre das Sombras",
+     "skill": {
+      "nome": "Dança da Sombra",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 0.9,
+      "hits": 6
+     }
+    },
+    {
+     "nome": "Lenda das Sombras",
+     "skill": {
+      "nome": "Assassinato",
+      "cd": 16,
+      "type": "execute",
+      "ratio": 6,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "envenenador": {
+   "arch": "batedor",
+   "tema": "Veneno",
+   "desc": "Venenos que corroem com o tempo e dardos que deixam lento.",
+   "passive": {
+    "dmgPct": 0.06,
+    "critDmg": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Envenenador",
+     "skill": {
+      "nome": "Lâmina Envenenada",
+      "cd": 11,
+      "type": "dot",
+      "ratio": 0.5,
+      "ticks": 8,
+      "every": 1
+     }
+    },
+    {
+     "nome": "Alquimista das Toxinas",
+     "skill": {
+      "nome": "Dardo Tóxico",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 3,
+      "slow": 0.2,
+      "slowDur": 3
+     }
+    },
+    {
+     "nome": "Mestre dos Venenos",
+     "skill": {
+      "nome": "Nuvem Venenosa",
+      "cd": 14,
+      "type": "dot",
+      "ratio": 0.8,
+      "ticks": 10,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Praga Viva",
+     "skill": {
+      "nome": "Toque da Praga",
+      "cd": 18,
+      "type": "dot",
+      "ratio": 1.6,
+      "ticks": 6,
+      "every": 0.5
+     }
+    }
+   ]
+  },
+  "polvora": {
+   "arch": "batedor",
+   "tema": "Pólvora",
+   "desc": "Bombas, granadas e canhões: barulho e dano em cheio.",
+   "passive": {
+    "apsPct": 0.06,
+    "eva": 0.04
+   },
+   "tiers": [
+    {
+     "nome": "Artífice da Pólvora",
+     "skill": {
+      "nome": "Bomba de Fumaça",
+      "cd": 10,
+      "type": "stun",
+      "ratio": 1.6,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Bombardeiro",
+     "skill": {
+      "nome": "Granada",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3.6
+     }
+    },
+    {
+     "nome": "Mestre da Pólvora",
+     "skill": {
+      "nome": "Canhonaço",
+      "cd": 11,
+      "type": "hit",
+      "ratio": 5,
+      "pierce": 0.3
+     }
+    },
+    {
+     "nome": "Lenda da Explosão",
+     "skill": {
+      "nome": "Barril Explosivo",
+      "cd": 20,
+      "type": "hit",
+      "ratio": 9
+     }
+    }
+   ]
+  },
+  "falcoeiro": {
+   "arch": "batedor",
+   "tema": "Falcão",
+   "desc": "Um falcão ataca o alvo enquanto você atira.",
+   "passive": {
+    "crit": 0.03,
+    "msPct": 0.08
+   },
+   "tiers": [
+    {
+     "nome": "Falcoeiro",
+     "skill": {
+      "nome": "Falcão de Caça",
+      "cd": 12,
+      "type": "dot",
+      "ratio": 0.65,
+      "ticks": 8,
+      "every": 1,
+      "pet": true,
+      "petName": "Um falcão"
+     }
+    },
+    {
+     "nome": "Mestre das Garras",
+     "skill": {
+      "nome": "Mergulho",
+      "cd": 8,
+      "type": "hit",
+      "ratio": 3,
+      "critBonus": 0.2
+     }
+    },
+    {
+     "nome": "Senhor dos Céus",
+     "skill": {
+      "nome": "Revoada",
+      "cd": 9,
+      "type": "multi",
+      "ratio": 0.6,
+      "hits": 6
+     }
+    },
+    {
+     "nome": "Rei-Falcão",
+     "skill": {
+      "nome": "Garras do Rei",
+      "cd": 8,
+      "type": "execute",
+      "ratio": 2.4,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "espectral": {
+   "arch": "batedor",
+   "tema": "Flechas fantasmas",
+   "desc": "Flechas fantasmas que ignoram armadura.",
+   "passive": {
+    "armorPen": 0.08,
+    "crit": 0.03
+   },
+   "tiers": [
+    {
+     "nome": "Flecheiro Espectral",
+     "skill": {
+      "nome": "Flecha Fantasma",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3,
+      "pierce": 0.4,
+      "critBonus": 0.1
+     }
+    },
+    {
+     "nome": "Arqueiro do Véu",
+     "skill": {
+      "nome": "Chuva Pálida",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 0.7,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Caçador de Almas",
+     "skill": {
+      "nome": "Flecha Atravessadora",
+      "cd": 11,
+      "type": "hit",
+      "ratio": 4.2,
+      "pierce": 0.6
+     }
+    },
+    {
+     "nome": "Lamento Eterno",
+     "skill": {
+      "nome": "Coro de Fantasmas",
+      "cd": 12,
+      "type": "dot",
+      "ratio": 0.7,
+      "ticks": 8,
+      "every": 0.5
+     }
+    }
+   ]
+  },
+  "cacador": {
+   "arch": "batedor",
+   "tema": "Recompensas",
+   "desc": "Marca o alvo e lucra com cada caçada.",
+   "passive": {
+    "goldPct": 0.12,
+    "bossPct": 0.08
+   },
+   "tiers": [
+    {
+     "nome": "Caçador de Prêmios",
+     "skill": {
+      "nome": "Cartaz de Procurado",
+      "cd": 10,
+      "type": "mark",
+      "ratio": 1.4,
+      "value": 0.3,
+      "dur": 7
+     }
+    },
+    {
+     "nome": "Rastreador",
+     "skill": {
+      "nome": "Boleadeira",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 1.8,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Caçador de Lendas",
+     "skill": {
+      "nome": "Tiro de Recompensa",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 3.8,
+      "bossBonus": 0.4
+     }
+    },
+    {
+     "nome": "Lenda da Fronteira",
+     "skill": {
+      "nome": "Acerto de Contas",
+      "cd": 9,
+      "type": "execute",
+      "ratio": 2.8,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "aurora": {
+   "arch": "devoto",
+   "tema": "Sol",
+   "desc": "Guerreiro da luz: martelo solar e raios do amanhecer.",
+   "passive": {
+    "defPct": 0.1,
+    "dmgPct": 0.1
+   },
+   "tiers": [
+    {
+     "nome": "Sentinela da Aurora",
+     "skill": {
+      "nome": "Martelo Solar",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 3
+     }
+    },
+    {
+     "nome": "Cavaleiro do Sol",
+     "skill": {
+      "nome": "Raio do Amanhecer",
+      "cd": 7,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 3
+     }
+    },
+    {
+     "nome": "Mestre da Luz Solar",
+     "skill": {
+      "nome": "Julgamento Solar",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.8,
+      "bossBonus": 0.3
+     }
+    },
+    {
+     "nome": "Avatar do Sol",
+     "skill": {
+      "nome": "Sol Nascente",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.8,
+      "hits": 5
+     }
+    }
+   ]
+  },
+  "herbalista": {
+   "arch": "devoto",
+   "tema": "Natureza",
+   "desc": "Cura com ervas e prende os inimigos em raízes e vinhas.",
+   "passive": {
+    "hpPct": 0.15
+   },
+   "tiers": [
+    {
+     "nome": "Herbalista",
+     "skill": {
+      "nome": "Bálsamo",
+      "cd": 12,
+      "type": "hot",
+      "value": 0.05,
+      "dur": 5
+     }
+    },
+    {
+     "nome": "Guardião do Bosque",
+     "skill": {
+      "nome": "Espinhos de Raiz",
+      "cd": 9,
+      "type": "dot",
+      "ratio": 0.8,
+      "ticks": 6,
+      "every": 1
+     }
+    },
+    {
+     "nome": "Mestre das Raízes",
+     "skill": {
+      "nome": "Prisão de Vinhas",
+      "cd": 11,
+      "type": "stun",
+      "ratio": 2.8,
+      "stun": 2
+     }
+    },
+    {
+     "nome": "Avatar da Floresta",
+     "skill": {
+      "nome": "Fúria da Floresta",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.5,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "juiz": {
+   "arch": "devoto",
+   "tema": "Julgamento",
+   "desc": "Especialista em chefes: sentenças, condenações e execuções.",
+   "passive": {
+    "bossPct": 0.15
+   },
+   "tiers": [
+    {
+     "nome": "Juiz de Cinzas",
+     "skill": {
+      "nome": "Sentença",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 2.6,
+      "bossBonus": 0.5
+     }
+    },
+    {
+     "nome": "Magistrado das Cinzas",
+     "skill": {
+      "nome": "Martelo do Veredito",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 2.6,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Mestre do Veredito",
+     "skill": {
+      "nome": "Condenação",
+      "cd": 11,
+      "type": "mark",
+      "ratio": 2.4,
+      "value": 0.4,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Juiz Supremo",
+     "skill": {
+      "nome": "Execução Solene",
+      "cd": 16,
+      "type": "execute",
+      "ratio": 6,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "cantor": {
+   "arch": "devoto",
+   "tema": "Hinos",
+   "desc": "Hinos que fortalecem e notas que cortam; aprende mais rápido.",
+   "passive": {
+    "xpPct": 0.08
+   },
+   "tiers": [
+    {
+     "nome": "Cantor de Hinos",
+     "skill": {
+      "nome": "Hino de Coragem",
+      "cd": 16,
+      "type": "buff",
+      "stat": "dmgPct",
+      "value": 0.3,
+      "dur": 8
+     }
+    },
+    {
+     "nome": "Coralista Sagrado",
+     "skill": {
+      "nome": "Nota Cortante",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 3.2
+     }
+    },
+    {
+     "nome": "Mestre dos Hinos",
+     "skill": {
+      "nome": "Coro Ressonante",
+      "cd": 10,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Lenda dos Hinos",
+     "skill": {
+      "nome": "Hino Final",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.6,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "limiar": {
+   "arch": "devoto",
+   "tema": "Portais",
+   "desc": "Guardião com barreiras e espinhos; sela os inimigos do outro lado.",
+   "passive": {
+    "defPct": 0.15,
+    "thorns": 0.25
+   },
+   "tiers": [
+    {
+     "nome": "Guardião do Limiar",
+     "skill": {
+      "nome": "Égide",
+      "cd": 14,
+      "type": "barrier",
+      "value": 0.25,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Vigia dos Portais",
+     "skill": {
+      "nome": "Golpe da Chave",
+      "cd": 9,
+      "type": "stun",
+      "ratio": 2.6,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Mestre do Limiar",
+     "skill": {
+      "nome": "Portal Esmagador",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.6
+     }
+    },
+    {
+     "nome": "Senhor dos Portões",
+     "skill": {
+      "nome": "Selar o Limiar",
+      "cd": 18,
+      "type": "hit",
+      "ratio": 8
+     }
+    }
+   ]
+  },
+  "peregrino": {
+   "arch": "devoto",
+   "tema": "Caminho",
+   "desc": "Andarilho de punhos rápidos que se recupera sozinho.",
+   "passive": {
+    "apsPct": 0.08,
+    "regenPct": 0.3
+   },
+   "tiers": [
+    {
+     "nome": "Peregrino",
+     "skill": {
+      "nome": "Rosário de Golpes",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 0.85,
+      "hits": 4
+     }
+    },
+    {
+     "nome": "Andarilho Sagrado",
+     "skill": {
+      "nome": "Palma Sagrada",
+      "cd": 6,
+      "type": "hit",
+      "ratio": 3.2
+     }
+    },
+    {
+     "nome": "Mestre do Caminho",
+     "skill": {
+      "nome": "Cem Golpes",
+      "cd": 12,
+      "type": "multi",
+      "ratio": 0.6,
+      "hits": 10
+     }
+    },
+    {
+     "nome": "Lenda Andarilha",
+     "skill": {
+      "nome": "Peregrinação Final",
+      "cd": 18,
+      "type": "multi",
+      "ratio": 1.3,
+      "hits": 7
+     }
+    }
+   ]
+  },
+  "augure": {
+   "arch": "devoto",
+   "tema": "Presságios",
+   "desc": "Lê o destino: marca o alvo, chama corvos e acha mais itens.",
+   "passive": {
+    "crit": 0.04,
+    "dropPct": 0.08
+   },
+   "tiers": [
+    {
+     "nome": "Áugure das Cinzas",
+     "skill": {
+      "nome": "Presságio",
+      "cd": 10,
+      "type": "mark",
+      "ratio": 1.4,
+      "value": 0.3,
+      "dur": 6
+     }
+    },
+    {
+     "nome": "Vidente dos Corvos",
+     "skill": {
+      "nome": "Revoada de Corvos",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 0.8,
+      "hits": 5
+     }
+    },
+    {
+     "nome": "Mestre dos Presságios",
+     "skill": {
+      "nome": "Olho do Destino",
+      "cd": 10,
+      "type": "hit",
+      "ratio": 4.4,
+      "critBonus": 0.3
+     }
+    },
+    {
+     "nome": "Voz do Destino",
+     "skill": {
+      "nome": "Fim Anunciado",
+      "cd": 16,
+      "type": "execute",
+      "ratio": 5.5,
+      "mult": 3
+     }
+    }
+   ]
+  },
+  "penitente": {
+   "arch": "devoto",
+   "tema": "Penitência",
+   "desc": "Corrente e mangual; se cura derrotando inimigos.",
+   "passive": {
+    "killHeal": 0.06,
+    "lifesteal": 0.02
+   },
+   "tiers": [
+    {
+     "nome": "Penitente",
+     "skill": {
+      "nome": "Expiação",
+      "cd": 7,
+      "type": "execute",
+      "ratio": 2.4,
+      "mult": 2.5
+     }
+    },
+    {
+     "nome": "Flagelante",
+     "skill": {
+      "nome": "Açoite de Correntes",
+      "cd": 6,
+      "type": "multi",
+      "ratio": 1,
+      "hits": 3
+     }
+    },
+    {
+     "nome": "Mestre da Penitência",
+     "skill": {
+      "nome": "Flagelo Ardente",
+      "cd": 11,
+      "type": "dot",
+      "ratio": 0.8,
+      "ticks": 8,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Mártir Eterno",
+     "skill": {
+      "nome": "Redenção pela Dor",
+      "cd": 16,
+      "type": "hit",
+      "ratio": 7.5,
+      "heal": 0.4
+     }
+    }
+   ]
+  },
+  "asceta": {
+   "arch": "devoto",
+   "tema": "Mãos vazias",
+   "desc": "Luta com as mãos e esquiva com calma.",
+   "passive": {
+    "eva": 0.05,
+    "regenPct": 0.3
+   },
+   "tiers": [
+    {
+     "nome": "Asceta",
+     "skill": {
+      "nome": "Palma Serena",
+      "cd": 8,
+      "type": "stun",
+      "ratio": 2.6,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Punho Tranquilo",
+     "skill": {
+      "nome": "Cem Palmas",
+      "cd": 8,
+      "type": "multi",
+      "ratio": 0.5,
+      "hits": 8
+     }
+    },
+    {
+     "nome": "Mestre do Silêncio",
+     "skill": {
+      "nome": "Golpe do Vazio",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 3.6,
+      "pierce": 0.3
+     }
+    },
+    {
+     "nome": "Iluminado",
+     "skill": {
+      "nome": "Mil Mãos",
+      "cd": 13,
+      "type": "multi",
+      "ratio": 0.45,
+      "hits": 14
+     }
+    }
+   ]
+  },
+  "mares": {
+   "arch": "devoto",
+   "tema": "Marés",
+   "desc": "Regenera em ondas e aguenta muito.",
+   "passive": {
+    "hpPct": 0.1,
+    "defPct": 0.06
+   },
+   "tiers": [
+    {
+     "nome": "Clérigo das Marés",
+     "skill": {
+      "nome": "Maré Restauradora",
+      "cd": 12,
+      "type": "hot",
+      "value": 0.06,
+      "dur": 5
+     }
+    },
+    {
+     "nome": "Voz da Correnteza",
+     "skill": {
+      "nome": "Onda Quebrada",
+      "cd": 7,
+      "type": "hit",
+      "ratio": 2.8
+     }
+    },
+    {
+     "nome": "Guardião do Recife",
+     "skill": {
+      "nome": "Ressaca",
+      "cd": 10,
+      "type": "stun",
+      "ratio": 2.4,
+      "stun": 1.5
+     }
+    },
+    {
+     "nome": "Senhor das Profundezas",
+     "skill": {
+      "nome": "Maremoto",
+      "cd": 11,
+      "type": "multi",
+      "ratio": 0.8,
+      "hits": 6
+     }
+    }
+   ]
+  },
+  "relicario": {
+   "arch": "devoto",
+   "tema": "Relíquias",
+   "desc": "Desperta relíquias que aceleram e protegem.",
+   "passive": {
+    "bossPct": 0.08,
+    "dropPct": 0.05
+   },
+   "tiers": [
+    {
+     "nome": "Guardião do Relicário",
+     "skill": {
+      "nome": "Relíquia Desperta",
+      "cd": 18,
+      "type": "buff",
+      "stats": {
+       "apsPct": 0.2,
+       "defPct": 0.2
+      },
+      "dur": 8
+     }
+    },
+    {
+     "nome": "Portador de Incenso",
+     "skill": {
+      "nome": "Incensário",
+      "cd": 9,
+      "type": "dot",
+      "ratio": 0.6,
+      "ticks": 6,
+      "every": 0.5
+     }
+    },
+    {
+     "nome": "Arconte das Relíquias",
+     "skill": {
+      "nome": "Martelo Sagrado",
+      "cd": 9,
+      "type": "hit",
+      "ratio": 3.6,
+      "bossBonus": 0.3
+     }
+    },
+    {
+     "nome": "Santuário Vivo",
+     "skill": {
+      "nome": "Juízo das Relíquias",
+      "cd": 9,
+      "type": "execute",
+      "ratio": 2.6,
+      "mult": 3
+     }
+    }
+   ]
+  }
+ },
+ "KINDS": {
+  "blob": {
+   "hp": 1.1,
+   "atk": 0.85,
+   "armor": 0.05,
+   "eva": 0,
+   "top": 58
+  },
+  "flyer": {
+   "hp": 0.75,
+   "atk": 1,
+   "armor": 0,
+   "eva": 0.1,
+   "top": 84
+  },
+  "beast": {
+   "hp": 1,
+   "atk": 1.15,
+   "armor": 0.05,
+   "eva": 0.03,
+   "top": 70
+  },
+  "golem": {
+   "hp": 1.45,
+   "atk": 0.9,
+   "armor": 0.22,
+   "eva": 0,
+   "top": 102
+  },
+  "wisp": {
+   "hp": 0.85,
+   "atk": 1.2,
+   "armor": 0.08,
+   "eva": 0.06,
+   "top": 100
+  },
+  "serpent": {
+   "hp": 1.05,
+   "atk": 1.1,
+   "armor": 0.1,
+   "eva": 0.04,
+   "top": 84
+  },
+  "knight": {
+   "hp": 1.3,
+   "atk": 1.05,
+   "armor": 0.18,
+   "eva": 0.02,
+   "top": 98
+  },
+  "jelly": {
+   "hp": 0.9,
+   "atk": 1.1,
+   "armor": 0.04,
+   "eva": 0.08,
+   "top": 96
+  },
+  "spider": {
+   "hp": 1.15,
+   "atk": 1.1,
+   "armor": 0.12,
+   "eva": 0.05,
+   "top": 58
+  },
+  "mushroom": {
+   "hp": 1.05,
+   "atk": 0.9,
+   "armor": 0.06,
+   "eva": 0,
+   "top": 58
+  },
+  "skeleton": {
+   "hp": 0.9,
+   "atk": 1.15,
+   "armor": 0.08,
+   "eva": 0.04,
+   "top": 90
+  },
+  "imp": {
+   "hp": 0.8,
+   "atk": 1.2,
+   "armor": 0.04,
+   "eva": 0.12,
+   "top": 72
+  },
+  "plant": {
+   "hp": 1.2,
+   "atk": 1.1,
+   "armor": 0.1,
+   "eva": 0,
+   "top": 80
+  },
+  "crab": {
+   "hp": 1.1,
+   "atk": 1,
+   "armor": 0.25,
+   "eva": 0.02,
+   "top": 48
+  },
+  "eye": {
+   "hp": 0.85,
+   "atk": 1.2,
+   "armor": 0.05,
+   "eva": 0.1,
+   "top": 82
+  },
+  "mimic": {
+   "hp": 1.3,
+   "atk": 1.25,
+   "armor": 0.2,
+   "eva": 0,
+   "top": 60
+  },
+  "treant": {
+   "hp": 1.4,
+   "atk": 0.95,
+   "armor": 0.15,
+   "eva": 0,
+   "top": 98
+  },
+  "worm": {
+   "hp": 1.3,
+   "atk": 1.1,
+   "armor": 0.1,
+   "eva": 0.02,
+   "top": 92
+  },
+  "tome": {
+   "hp": 0.8,
+   "atk": 1.25,
+   "armor": 0.05,
+   "eva": 0.1,
+   "top": 88
+  },
+  "maw": {
+   "hp": 1.2,
+   "atk": 1.2,
+   "armor": 0.08,
+   "eva": 0.04,
+   "top": 78
+  }
+ },
+ "ZONES": [
+  {
+   "id": "clareira",
+   "nome": "Clareira das Cinzas",
+   "lv": [
+    1,
+    5
+   ],
+   "sky": [
+    "#1d2f2a",
+    "#0f1916"
+   ],
+   "far": "#1b2b25",
+   "near": "#14211c",
+   "ground": "#101a15",
+   "decor": "trees",
+   "mobs": [
+    [
+     "Brotinho de Musgo",
+     "blob",
+     "#7fb07a"
+    ],
+    [
+     "Mariposa de Fuligem",
+     "flyer",
+     "#9a8f86"
+    ],
+    [
+     "Javali Fumê",
+     "beast",
+     "#8a6e5a"
+    ],
+    [
+     "Cogumelo Saltitante",
+     "mushroom",
+     "#c96a4a"
+    ]
+   ],
+   "boss": [
+    "Rainha-Musgo Antiga",
+    "blob",
+    "#5f9a5a"
+   ]
+  },
+  {
+   "id": "brejo",
+   "nome": "Brejo das Lamparinas",
+   "lv": [
+    6,
+    12
+   ],
+   "sky": [
+    "#1b2c33",
+    "#0d171b"
+   ],
+   "far": "#183038",
+   "near": "#122329",
+   "ground": "#0e1b1f",
+   "decor": "reeds",
+   "mobs": [
+    [
+     "Sapo-Lampião",
+     "blob",
+     "#c9b45a"
+    ],
+    [
+     "Lodo Errante",
+     "blob",
+     "#6f7d4c"
+    ],
+    [
+     "Vagalume Faminto",
+     "flyer",
+     "#e6d36a"
+    ],
+    [
+     "Planta Engolidora",
+     "plant",
+     "#6a9a4a"
+    ]
+   ],
+   "boss": [
+    "Velho Sapo do Lodo",
+    "blob",
+    "#8a9a3a"
+   ]
+  },
+  {
+   "id": "pedreira",
+   "nome": "Pedreira Sussurrante",
+   "lv": [
+    13,
+    21
+   ],
+   "sky": [
+    "#2b2925",
+    "#141210"
+   ],
+   "far": "#2b2723",
+   "near": "#221f1b",
+   "ground": "#1a1714",
+   "decor": "rocks",
+   "mobs": [
+    [
+     "Golem de Cascalho",
+     "golem",
+     "#9b9187"
+    ],
+    [
+     "Morcego de Quartzo",
+     "flyer",
+     "#c7b8e0"
+    ],
+    [
+     "Escavador Cego",
+     "beast",
+     "#a07c5f"
+    ],
+    [
+     "Caranguejo de Cascalho",
+     "crab",
+     "#8a7a6a"
+    ]
+   ],
+   "boss": [
+    "Colosso de Granito",
+    "golem",
+    "#857a70"
+   ]
+  },
+  {
+   "id": "bosque",
+   "nome": "Bosque Pálido",
+   "lv": [
+    22,
+    31
+   ],
+   "sky": [
+    "#262b36",
+    "#111319"
+   ],
+   "far": "#23272f",
+   "near": "#1a1d25",
+   "ground": "#14161c",
+   "decor": "pale",
+   "mobs": [
+    [
+     "Lobo de Névoa",
+     "beast",
+     "#b9c3cf"
+    ],
+    [
+     "Espectro de Galho",
+     "wisp",
+     "#c8d6c0"
+    ],
+    [
+     "Corvo Agourento",
+     "flyer",
+     "#59606e"
+    ],
+    [
+     "Olho da Névoa",
+     "eye",
+     "#c8d0dc"
+    ]
+   ],
+   "boss": [
+    "Alfa da Névoa",
+    "beast",
+    "#dfe7ef"
+   ]
+  },
+  {
+   "id": "ruinas",
+   "nome": "Ruínas de Vidro",
+   "lv": [
+    32,
+    42
+   ],
+   "sky": [
+    "#1a2d33",
+    "#0b1518"
+   ],
+   "far": "#173037",
+   "near": "#11242a",
+   "ground": "#0d1c20",
+   "decor": "ruins",
+   "mobs": [
+    [
+     "Sentinela de Vitral",
+     "knight",
+     "#7ec9c9"
+    ],
+    [
+     "Serpente Prismática",
+     "serpent",
+     "#a7e3d4"
+    ],
+    [
+     "Eco Quebrado",
+     "wisp",
+     "#9fd7ef"
+    ],
+    [
+     "Esqueleto de Vitral",
+     "skeleton",
+     "#bfe0e0"
+    ]
+   ],
+   "boss": [
+    "Guardião Estilhaçado",
+    "knight",
+    "#5fb7c7"
+   ]
+  },
+  {
+   "id": "dunas",
+   "nome": "Dunas de Âmbar",
+   "lv": [
+    43,
+    54
+   ],
+   "sky": [
+    "#3a2a1b",
+    "#1a120b"
+   ],
+   "far": "#3a2b1c",
+   "near": "#2e2216",
+   "ground": "#251b11",
+   "decor": "dunes",
+   "mobs": [
+    [
+     "Escorpião de Âmbar",
+     "beast",
+     "#e0a64a"
+    ],
+    [
+     "Djinn de Areia",
+     "wisp",
+     "#e8c98a"
+    ],
+    [
+     "Besouro Solar",
+     "flyer",
+     "#f0c040"
+    ],
+    [
+     "Diabrete de Areia",
+     "imp",
+     "#d89a5a"
+    ]
+   ],
+   "boss": [
+    "Imperatriz Escaravelho",
+    "golem",
+    "#d9a13a"
+   ]
+  },
+  {
+   "id": "cume",
+   "nome": "Cume Gélido",
+   "lv": [
+    55,
+    66
+   ],
+   "sky": [
+    "#24323f",
+    "#0f171f"
+   ],
+   "far": "#2a3a48",
+   "near": "#1d2a35",
+   "ground": "#18232c",
+   "decor": "peaks",
+   "mobs": [
+    [
+     "Yeti Errante",
+     "golem",
+     "#dfe9f2"
+    ],
+    [
+     "Espírito da Nevasca",
+     "wisp",
+     "#bfe3f5"
+    ],
+    [
+     "Lince de Gelo",
+     "beast",
+     "#a9c8dc"
+    ],
+    [
+     "Caranguejo de Gelo",
+     "crab",
+     "#a8c8e0"
+    ]
+   ],
+   "boss": [
+    "Wyrm do Inverno",
+    "serpent",
+    "#cfe8ff"
+   ]
+  },
+  {
+   "id": "coracao",
+   "nome": "Coração Apagado",
+   "lv": [
+    67,
+    80
+   ],
+   "sky": [
+    "#211726",
+    "#0b080d"
+   ],
+   "far": "#22182a",
+   "near": "#191220",
+   "ground": "#130e17",
+   "decor": "void",
+   "mobs": [
+    [
+     "Sombra Faminta",
+     "wisp",
+     "#8a6aa8"
+    ],
+    [
+     "Cavaleiro Oco",
+     "knight",
+     "#6d6577"
+    ],
+    [
+     "Fogo-Fátuo Negro",
+     "flyer",
+     "#6a4c8c"
+    ],
+    [
+     "Olho Vazio",
+     "eye",
+     "#7a5a9a"
+    ]
+   ],
+   "boss": [
+    "O Apagador",
+    "knight",
+    "#4b3a5c"
+   ]
+  },
+  {
+   "id": "breu",
+   "nome": "Mar de Breu",
+   "lv": [
+    81,
+    90
+   ],
+   "sky": [
+    "#151a22",
+    "#07090c"
+   ],
+   "far": "#141920",
+   "near": "#0b0e12",
+   "ground": "#090b0e",
+   "decor": "tar",
+   "mobs": [
+    [
+     "Enguia de Breu",
+     "serpent",
+     "#4a5a6a"
+    ],
+    [
+     "Marinheiro Afogado",
+     "knight",
+     "#5d7480"
+    ],
+    [
+     "Medusa de Piche",
+     "jelly",
+     "#7a8fb0"
+    ],
+    [
+     "Caranguejo de Piche",
+     "crab",
+     "#3a4a5a"
+    ]
+   ],
+   "boss": [
+    "Leviatã de Piche",
+    "serpent",
+    "#2f3a48"
+   ]
+  },
+  {
+   "id": "obsidiana",
+   "nome": "Bosque de Obsidiana",
+   "lv": [
+    91,
+    100
+   ],
+   "sky": [
+    "#1d1628",
+    "#0a0710"
+   ],
+   "far": "#1b1524",
+   "near": "#130f1a",
+   "ground": "#0f0b14",
+   "decor": "crystals",
+   "mobs": [
+    [
+     "Aranha de Obsidiana",
+     "spider",
+     "#4b3d63"
+    ],
+    [
+     "Golem Espelhado",
+     "golem",
+     "#8d84a8"
+    ],
+    [
+     "Fada Partida",
+     "wisp",
+     "#c7a6f0"
+    ],
+    [
+     "Cogumelo Cristalino",
+     "mushroom",
+     "#9a7ad0"
+    ]
+   ],
+   "boss": [
+    "Rainha Tecelã",
+    "spider",
+    "#6a4a8c"
+   ]
+  },
+  {
+   "id": "afundada",
+   "nome": "Cidade Afundada",
+   "lv": [
+    101,
+    110
+   ],
+   "sky": [
+    "#14262b",
+    "#071113"
+   ],
+   "far": "#12242a",
+   "near": "#0c1a1e",
+   "ground": "#0a1518",
+   "decor": "city",
+   "mobs": [
+    [
+     "Guarda Afogado",
+     "knight",
+     "#4f8a8a"
+    ],
+    [
+     "Polvo de Lama",
+     "blob",
+     "#6a7a5a"
+    ],
+    [
+     "Medusa-Lanterna",
+     "jelly",
+     "#9fe0d0"
+    ],
+    [
+     "Esqueleto Afogado",
+     "skeleton",
+     "#8ab0a8"
+    ]
+   ],
+   "boss": [
+    "Arquiduque Afogado",
+    "knight",
+    "#3f7a7a"
+   ]
+  },
+  {
+   "id": "fornalha",
+   "nome": "Fornalha Antiga",
+   "lv": [
+    111,
+    120
+   ],
+   "sky": [
+    "#3a1a12",
+    "#130706"
+   ],
+   "far": "#2e1510",
+   "near": "#22100c",
+   "ground": "#1a0c09",
+   "decor": "lava",
+   "mobs": [
+    [
+     "Salamandra de Escória",
+     "serpent",
+     "#d0603a"
+    ],
+    [
+     "Forjador de Cinzas",
+     "golem",
+     "#8a6a5a"
+    ],
+    [
+     "Fagulha Rebelde",
+     "wisp",
+     "#ffb050"
+    ],
+    [
+     "Diabrete de Brasa",
+     "imp",
+     "#e0603a"
+    ]
+   ],
+   "boss": [
+    "O Primeiro Ferreiro",
+    "golem",
+    "#b0583a"
+   ]
+  },
+  {
+   "id": "aurora",
+   "nome": "Limiar da Aurora",
+   "lv": [
+    121,
+    130
+   ],
+   "sky": [
+    "#232b4a",
+    "#b9845a"
+   ],
+   "far": "#3a3550",
+   "near": "#2a2638",
+   "ground": "#1f1c29",
+   "decor": "dawn",
+   "mobs": [
+    [
+     "Eco da Primeira Luz",
+     "wisp",
+     "#ffe2a8"
+    ],
+    [
+     "Sentinela Dourada",
+     "knight",
+     "#d9b45a"
+    ],
+    [
+     "Cervo de Luz",
+     "beast",
+     "#f3e2c0"
+    ],
+    [
+     "Planta da Alvorada",
+     "plant",
+     "#e0c070"
+    ]
+   ],
+   "boss": [
+    "A Noite Que Resta",
+    "wisp",
+    "#3a2f5a"
+   ]
+  }
+ ],
+ "FIELD_BOSSES": {
+  "clareira": [
+   "Javali Rei da Fuligem",
+   "beast",
+   "#6e5444"
+  ],
+  "brejo": [
+   "Mãe-Lodo",
+   "blob",
+   "#4f5e34"
+  ],
+  "pedreira": [
+   "Morcego Ancião de Quartzo",
+   "flyer",
+   "#b4a4d8"
+  ],
+  "bosque": [
+   "Corvo das Mil Penas",
+   "flyer",
+   "#3e4350"
+  ],
+  "ruinas": [
+   "Serpente de Vitral",
+   "serpent",
+   "#6fc7b8"
+  ],
+  "dunas": [
+   "Djinn do Simum",
+   "wisp",
+   "#e0b06a"
+  ],
+  "cume": [
+   "Lince Branco Ancestral",
+   "beast",
+   "#e4eef6"
+  ],
+  "coracao": [
+   "Cavaleiro Sem Nome",
+   "knight",
+   "#55506a"
+  ],
+  "breu": [
+   "Medusa Rainha",
+   "jelly",
+   "#5c6f94"
+  ],
+  "obsidiana": [
+   "Viúva de Vidro",
+   "spider",
+   "#7a6aa0"
+  ],
+  "afundada": [
+   "Colosso Coralino",
+   "golem",
+   "#5f8f86"
+  ],
+  "fornalha": [
+   "Salamandra Imperatriz",
+   "serpent",
+   "#e06a3a"
+  ],
+  "aurora": [
+   "Arauto do Crepúsculo",
+   "knight",
+   "#c9a24a"
+  ]
+ },
+ "EXTRA_MOBS": {
+  "clareira": [
+   "Cogumelo Saltitante",
+   "mushroom",
+   "#c96a4a"
+  ],
+  "brejo": [
+   "Planta Engolidora",
+   "plant",
+   "#6a9a4a"
+  ],
+  "pedreira": [
+   "Caranguejo de Cascalho",
+   "crab",
+   "#8a7a6a"
+  ],
+  "bosque": [
+   "Olho da Névoa",
+   "eye",
+   "#c8d0dc"
+  ],
+  "ruinas": [
+   "Esqueleto de Vitral",
+   "skeleton",
+   "#bfe0e0"
+  ],
+  "dunas": [
+   "Diabrete de Areia",
+   "imp",
+   "#d89a5a"
+  ],
+  "cume": [
+   "Caranguejo de Gelo",
+   "crab",
+   "#a8c8e0"
+  ],
+  "coracao": [
+   "Olho Vazio",
+   "eye",
+   "#7a5a9a"
+  ],
+  "breu": [
+   "Caranguejo de Piche",
+   "crab",
+   "#3a4a5a"
+  ],
+  "obsidiana": [
+   "Cogumelo Cristalino",
+   "mushroom",
+   "#9a7ad0"
+  ],
+  "afundada": [
+   "Esqueleto Afogado",
+   "skeleton",
+   "#8ab0a8"
+  ],
+  "fornalha": [
+   "Diabrete de Brasa",
+   "imp",
+   "#e0603a"
+  ],
+  "aurora": [
+   "Planta da Alvorada",
+   "plant",
+   "#e0c070"
+  ]
+ },
+ "DUNGEONS": [
+  {
+   "id": "esporos",
+   "nome": "Toca dos Esporos",
+   "after": 1,
+   "lv": 15,
+   "theme": "fungus",
+   "floor": [
+    "#2c2a3a",
+    "#37324a"
+   ],
+   "mobs": [
+    [
+     "Cogumelo Saltitante",
+     "mushroom",
+     "#c96a4a"
+    ],
+    [
+     "Cogumelo Venenoso",
+     "mushroom",
+     "#8a5ac0"
+    ],
+    [
+     "Lodo de Caverna",
+     "blob",
+     "#5a7a5a"
+    ]
+   ],
+   "mini": [
+    "Cogumelo Guardião",
+    "mushroom",
+    "#d0804a"
+   ],
+   "boss": [
+    "Mãe-Esporo",
+    "plant",
+    "#9a6ab0"
+   ]
+  },
+  {
+   "id": "catacumba",
+   "nome": "Catacumba Sussurrante",
+   "after": 3,
+   "lv": 34,
+   "theme": "bones",
+   "floor": [
+    "#34312c",
+    "#3e3a34"
+   ],
+   "mobs": [
+    [
+     "Esqueleto Vigia",
+     "skeleton",
+     "#d8d2c0"
+    ],
+    [
+     "Olho da Cripta",
+     "eye",
+     "#b8b0a0"
+    ],
+    [
+     "Morcego Ossudo",
+     "flyer",
+     "#8a8278"
+    ]
+   ],
+   "mini": [
+    "Arauto Ossudo",
+    "skeleton",
+    "#e6dcc0"
+   ],
+   "boss": [
+    "Rei das Catacumbas",
+    "skeleton",
+    "#c9b87a"
+   ]
+  },
+  {
+   "id": "colmeia",
+   "nome": "Colmeia de Âmbar",
+   "after": 5,
+   "lv": 57,
+   "theme": "amber",
+   "floor": [
+    "#5a4020",
+    "#6a4c26"
+   ],
+   "mobs": [
+    [
+     "Diabrete de Areia",
+     "imp",
+     "#d89a5a"
+    ],
+    [
+     "Zangão de Âmbar",
+     "flyer",
+     "#f0b040"
+    ],
+    [
+     "Planta Melífera",
+     "plant",
+     "#c0a040"
+    ]
+   ],
+   "mini": [
+    "Guarda da Colmeia",
+    "imp",
+    "#e0a040"
+   ],
+   "boss": [
+    "Rainha-Colmeia",
+    "imp",
+    "#f0c050"
+   ]
+  },
+  {
+   "id": "gruta",
+   "nome": "Gruta Congelada",
+   "after": 6,
+   "lv": 69,
+   "theme": "ice",
+   "floor": [
+    "#4a5a6a",
+    "#57697b"
+   ],
+   "mobs": [
+    [
+     "Caranguejo de Gelo",
+     "crab",
+     "#a8c8e0"
+    ],
+    [
+     "Olho Gélido",
+     "eye",
+     "#cfe8ff"
+    ],
+    [
+     "Espírito do Degelo",
+     "wisp",
+     "#bfe3f5"
+    ]
+   ],
+   "mini": [
+    "Sentinela de Gelo",
+    "golem",
+    "#cfe0ee"
+   ],
+   "boss": [
+    "Caranguejo Rei de Gelo",
+    "crab",
+    "#e0f0ff"
+   ]
+  },
+  {
+   "id": "naufragio",
+   "nome": "Naufrágio Profundo",
+   "after": 8,
+   "lv": 93,
+   "theme": "wreck",
+   "floor": [
+    "#1e2c30",
+    "#27373b"
+   ],
+   "mobs": [
+    [
+     "Caranguejo de Piche",
+     "crab",
+     "#3a4a5a"
+    ],
+    [
+     "Esqueleto Marujo",
+     "skeleton",
+     "#9ab0a8"
+    ],
+    [
+     "Medusa das Profundezas",
+     "jelly",
+     "#6f9ab0"
+    ]
+   ],
+   "mini": [
+    "Imediato Afogado",
+    "knight",
+    "#4f7a7a"
+   ],
+   "boss": [
+    "Capitão Afogado",
+    "skeleton",
+    "#c0d8d0"
+   ]
+  },
+  {
+   "id": "cofre",
+   "nome": "Cofre do Arquiduque",
+   "after": 10,
+   "lv": 114,
+   "theme": "vault",
+   "floor": [
+    "#3a3020",
+    "#473b27"
+   ],
+   "mobs": [
+    [
+     "Baú Mímico",
+     "mimic",
+     "#7a5a3a"
+    ],
+    [
+     "Guarda do Cofre",
+     "knight",
+     "#9a8a5a"
+    ],
+    [
+     "Olho do Tesouro",
+     "eye",
+     "#e0c070"
+    ]
+   ],
+   "mini": [
+    "Mímico Ancião",
+    "mimic",
+    "#6a4a2a"
+   ],
+   "boss": [
+    "Mímico Dourado",
+    "mimic",
+    "#c9a24a"
+   ]
+  },
+  {
+   "id": "forja",
+   "nome": "Coração da Forja",
+   "after": 11,
+   "lv": 125,
+   "theme": "forge",
+   "floor": [
+    "#3a1a12",
+    "#47231a"
+   ],
+   "mobs": [
+    [
+     "Diabrete de Brasa",
+     "imp",
+     "#e0603a"
+    ],
+    [
+     "Forjador de Cinzas",
+     "golem",
+     "#8a6a5a"
+    ],
+    [
+     "Salamandra Menor",
+     "serpent",
+     "#d86a3a"
+    ]
+   ],
+   "mini": [
+    "Capataz da Forja",
+    "golem",
+    "#a05a3a"
+   ],
+   "boss": [
+    "Ferreiro de Cinzas",
+    "golem",
+    "#c0603a"
+   ]
+  },
+  {
+   "id": "raizes",
+   "nome": "Covil das Raízes",
+   "after": 0,
+   "lv": 8,
+   "theme": "roots",
+   "floor": [
+    "#2a3222",
+    "#333d29"
+   ],
+   "mobs": [
+    [
+     "Broto Raivoso",
+     "plant",
+     "#7aa04a"
+    ],
+    [
+     "Besouro de Casca",
+     "crab",
+     "#6a5a3a"
+    ],
+    [
+     "Cogumelo Saltitante",
+     "mushroom",
+     "#c96a4a"
+    ]
+   ],
+   "mini": [
+    "Toco Ranzinza",
+    "treant",
+    "#7a6a44"
+   ],
+   "boss": [
+    "Avó-Raiz",
+    "treant",
+    "#5a6a3a"
+   ]
+  },
+  {
+   "id": "mina",
+   "nome": "Mina Esquecida",
+   "after": 2,
+   "lv": 26,
+   "theme": "mine",
+   "floor": [
+    "#2e2a26",
+    "#38332d"
+   ],
+   "mobs": [
+    [
+     "Golem de Carvão",
+     "golem",
+     "#4a4440"
+    ],
+    [
+     "Morcego de Mina",
+     "flyer",
+     "#7a6a5a"
+    ],
+    [
+     "Verme de Cascalho",
+     "worm",
+     "#9a8a6a"
+    ]
+   ],
+   "mini": [
+    "Capataz de Pedra",
+    "golem",
+    "#8a7a6a"
+   ],
+   "boss": [
+    "Verme Devorador",
+    "worm",
+    "#b09060"
+   ]
+  },
+  {
+   "id": "biblioteca",
+   "nome": "Biblioteca Partida",
+   "after": 4,
+   "lv": 47,
+   "theme": "library",
+   "floor": [
+    "#2a2a36",
+    "#333342"
+   ],
+   "mobs": [
+    [
+     "Livro Mordedor",
+     "tome",
+     "#8a5a3a"
+    ],
+    [
+     "Sentinela de Leitura",
+     "knight",
+     "#7ea8c9"
+    ],
+    [
+     "Olho Bibliotecário",
+     "eye",
+     "#c8d0e0"
+    ]
+   ],
+   "mini": [
+    "Bibliotecária de Vitral",
+    "wisp",
+    "#9fd7ef"
+   ],
+   "boss": [
+    "Grimório Desperto",
+    "tome",
+    "#5a3a7a"
+   ]
+  },
+  {
+   "id": "abismo",
+   "nome": "Abismo do Eco",
+   "after": 7,
+   "lv": 84,
+   "theme": "abyss",
+   "floor": [
+    "#1e1726",
+    "#271e31"
+   ],
+   "mobs": [
+    [
+     "Boca do Vazio",
+     "maw",
+     "#5a3a6a"
+    ],
+    [
+     "Cavaleiro Oco",
+     "knight",
+     "#6d6577"
+    ],
+    [
+     "Olho Vazio",
+     "eye",
+     "#7a5a9a"
+    ]
+   ],
+   "mini": [
+    "Carcereiro Oco",
+    "knight",
+    "#4b4060"
+   ],
+   "boss": [
+    "Devorador de Ecos",
+    "maw",
+    "#3a2a4a"
+   ]
+  },
+  {
+   "id": "ninho",
+   "nome": "Ninho Espelhado",
+   "after": 9,
+   "lv": 105,
+   "theme": "mirror",
+   "floor": [
+    "#241d30",
+    "#2e253c"
+   ],
+   "mobs": [
+    [
+     "Aranha de Obsidiana",
+     "spider",
+     "#4b3d63"
+    ],
+    [
+     "Golem Espelhado",
+     "golem",
+     "#8d84a8"
+    ],
+    [
+     "Livro de Vidro",
+     "tome",
+     "#b0a0d8"
+    ]
+   ],
+   "mini": [
+    "Sentinela Espelhada",
+    "golem",
+    "#a89cc8"
+   ],
+   "boss": [
+    "Matriarca de Obsidiana",
+    "spider",
+    "#5a3a7a"
+   ]
+  },
+  {
+   "id": "trono",
+   "nome": "Trono do Crepúsculo",
+   "after": 12,
+   "lv": 128,
+   "theme": "throne",
+   "floor": [
+    "#2a2440",
+    "#352d50"
+   ],
+   "mobs": [
+    [
+     "Sentinela Dourada",
+     "knight",
+     "#d9b45a"
+    ],
+    [
+     "Eco da Primeira Luz",
+     "wisp",
+     "#ffe2a8"
+    ],
+    [
+     "Boca do Crepúsculo",
+     "maw",
+     "#4a3a6a"
+    ]
+   ],
+   "mini": [
+    "Guarda do Crepúsculo",
+    "knight",
+    "#b89a4a"
+   ],
+   "boss": [
+    "O Rei Sem Aurora",
+    "knight",
+    "#2e2a44"
+   ]
+  },
+  {
+   "id": "pin_portador",
+   "nome": "Eco do Primeiro Portador",
+   "after": 12,
+   "lv": 200,
+   "theme": "throne",
+   "floor": [
+    "#2a2440",
+    "#352d50"
+   ],
+   "pin": "memoria",
+   "bossMul": 2.2,
+   "mobs": [
+    [
+     "Sombra de Portador",
+     "knight",
+     "#7a6a9a",
+     "Cavaleiro Oco"
+    ],
+    [
+     "Lanterna Partida",
+     "wisp",
+     "#e0a050",
+     "Eco da Primeira Luz"
+    ],
+    [
+     "Sentinela Dourada",
+     "knight",
+     "#d9b45a"
+    ]
+   ],
+   "mini": [
+    "Guardião das Cinzas",
+    "knight",
+    "#8a7a5a",
+    "Guarda do Crepúsculo"
+   ],
+   "boss": [
+    "O Primeiro Portador",
+    "knight",
+    "#e8c45a",
+    "O Rei Sem Aurora"
+   ],
+   "fala": "Eu também carreguei essa lanterna. Eu também cheguei à aurora. E voltei aqui para ver se alguém faria melhor.",
+   "fim": "O Primeiro Portador sorri, entrega a lanterna dele e vira cinza boa, do tipo que aquece. Lá embaixo, no fundo do Abismo, alguma coisa grande acordou com o barulho."
+  },
+  {
+   "id": "pin_fome",
+   "nome": "Ventre da Fome",
+   "after": 12,
+   "lv": 500,
+   "theme": "abyss",
+   "floor": [
+    "#1e1726",
+    "#271e31"
+   ],
+   "pin": "fome",
+   "bossMul": 3,
+   "mobs": [
+    [
+     "Boca do Vazio",
+     "maw",
+     "#5a3a6a"
+    ],
+    [
+     "Olho Vazio",
+     "eye",
+     "#7a5a9a"
+    ],
+    [
+     "Devorador Menor",
+     "maw",
+     "#3a2a4a",
+     "Devorador de Ecos"
+    ]
+   ],
+   "mini": [
+    "Arauto da Fome",
+    "maw",
+    "#4a2a5a",
+    "Devorador de Ecos"
+   ],
+   "boss": [
+    "A Fome Sem Forma",
+    "maw",
+    "#20142a",
+    "Devorador de Ecos"
+   ],
+   "fala": "(não há palavras: só o som de toda a luz do mundo sendo engolida ao mesmo tempo)",
+   "fim": "A Fome Sem Forma se desfaz em mil brasas. Era isso que o Apagador tentava alimentar: não um monstro, mas o buraco que o sol deixou ao se partir. Por enquanto, ele está cheio de luz."
+  }
+ ],
+ "BODY": {
+  "cloak": {
+   "w": 11,
+   "fl": 15,
+   "hem": -14,
+   "mantle": 1
+  },
+  "tunic": {
+   "w": 11,
+   "fl": 13,
+   "hem": -22,
+   "belt": 1
+  },
+  "plate": {
+   "w": 12,
+   "fl": 13,
+   "hem": -21,
+   "belt": 1,
+   "pld": 7,
+   "plates": 1,
+   "armor": 1
+  },
+  "robe": {
+   "w": 11,
+   "fl": 17,
+   "hem": -3,
+   "sash": 1
+  },
+  "coat": {
+   "w": 11,
+   "fl": 16,
+   "hem": -10,
+   "belt": 1,
+   "split": 1
+  },
+  "fur": {
+   "w": 12,
+   "fl": 13,
+   "hem": -22,
+   "bare": 1,
+   "collar": 1,
+   "kilt": 1
+  },
+  "gladiator": {
+   "w": 11,
+   "fl": 12,
+   "hem": -22,
+   "bare": 1,
+   "pld": 8,
+   "oneP": 1,
+   "kilt": 1,
+   "strap": 1
+  },
+  "leather": {
+   "w": 11,
+   "fl": 12,
+   "hem": -24,
+   "belt": 1,
+   "strap": 1
+  },
+  "rags": {
+   "w": 11,
+   "fl": 15,
+   "hem": -8,
+   "tat": 1,
+   "belt": 1
+  },
+  "apron": {
+   "w": 11,
+   "fl": 13,
+   "hem": -20,
+   "belt": 1,
+   "apron": 1
+  },
+  "monk": {
+   "w": 11,
+   "fl": 14,
+   "hem": -12,
+   "bare": 1,
+   "kilt": 1,
+   "drape": 1
+  }
+ },
+ "LOOK": {
+  "none": {
+   "body": "cloak",
+   "head": "hood",
+   "wpn": "stick",
+   "c1": "#5b5246",
+   "c2": "#3d362e",
+   "tr": "#8a7a5a",
+   "fx": "#f0a23f"
+  },
+  "guerreiro": {
+   "body": "tunic",
+   "head": "helm",
+   "wpn": "sword",
+   "back": "cape",
+   "c1": "#7a3b2a",
+   "c2": "#4e251b",
+   "tr": "#c9b48a",
+   "cape": "#5a2418",
+   "fx": "#ffb27a"
+  },
+  "baluarte": {
+   "body": "plate",
+   "head": "greathelm",
+   "wpn": "shortsword",
+   "off": "tower",
+   "c1": "#76869a",
+   "c2": "#465262",
+   "tr": "#c9a54a",
+   "mt": "#a3b0bb",
+   "shield": "#34507a",
+   "fx": "#9fc4e8"
+  },
+  "ceifador": {
+   "body": "rags",
+   "head": "deephood",
+   "eyes": "#b6f07a",
+   "wpn": "scythe",
+   "c1": "#3a3340",
+   "c2": "#221e27",
+   "tr": "#6f7a5a",
+   "fx": "#c4f08a",
+   "aura": "mist"
+  },
+  "duelista": {
+   "body": "coat",
+   "head": "plumehat",
+   "hair": "#3a2418",
+   "wpn": "rapier",
+   "back": "halfcape",
+   "c1": "#8a2040",
+   "c2": "#561428",
+   "tr": "#e0c070",
+   "fx": "#ffd0e0"
+  },
+  "furia": {
+   "body": "fur",
+   "head": "wild",
+   "hair": "#a8402a",
+   "wpn": "axe",
+   "off": "axe",
+   "c1": "#6a4a30",
+   "c2": "#3e2a1a",
+   "tr": "#b8322a",
+   "sk": "#d8a07a",
+   "fx": "#ff5a3a",
+   "aura": "rage"
+  },
+  "estandarte": {
+   "body": "plate",
+   "tabard": 1,
+   "head": "crest",
+   "wpn": "sword",
+   "back": "banner",
+   "c1": "#2f5a9a",
+   "c2": "#1e3a66",
+   "tr": "#e8c45a",
+   "mt": "#b8c2cc",
+   "fx": "#ffe08a"
+  },
+  "quebraescudos": {
+   "body": "plate",
+   "head": "horned",
+   "wpn": "maul",
+   "c1": "#8a6a3a",
+   "c2": "#5a4422",
+   "tr": "#d0c8b0",
+   "mt": "#8a8f94",
+   "fx": "#ffcf7a"
+  },
+  "campeao": {
+   "body": "gladiator",
+   "head": "gladhelm",
+   "wpn": "greatsword",
+   "c1": "#a0522d",
+   "c2": "#6a3418",
+   "tr": "#d8b070",
+   "sk": "#c8906a",
+   "mt": "#c0a070",
+   "fx": "#ffb060"
+  },
+  "farpada": {
+   "body": "plate",
+   "spikes": 1,
+   "head": "spiked",
+   "wpn": "morningstar",
+   "c1": "#4a4a52",
+   "c2": "#2a2a30",
+   "tr": "#8a3a3a",
+   "mt": "#7a828a",
+   "fx": "#d0d8e0"
+  },
+  "arcanista": {
+   "body": "robe",
+   "head": "hood",
+   "wpn": "orbstaff",
+   "c1": "#34406e",
+   "c2": "#222a4a",
+   "tr": "#93a9f2",
+   "fx": "#93a9f2",
+   "proj": "orb"
+  },
+  "tecelao": {
+   "body": "robe",
+   "head": "hood",
+   "wpn": "flamewand",
+   "c1": "#a4482a",
+   "c2": "#6a2a18",
+   "tr": "#f0a23f",
+   "fx": "#ff9a4a",
+   "aura": "embers",
+   "proj": "ember"
+  },
+  "glacial": {
+   "body": "robe",
+   "head": "crown",
+   "crown": "ice",
+   "hair": "#e8f0f4",
+   "wpn": "icestaff",
+   "c1": "#cfe4f0",
+   "c2": "#7aa0b8",
+   "tr": "#5a8ab0",
+   "fx": "#a8e4ff",
+   "aura": "frost",
+   "proj": "ice"
+  },
+  "tempestario": {
+   "body": "robe",
+   "head": "pointhat",
+   "beard": "#d8d8e0",
+   "wpn": "stormstaff",
+   "c1": "#3a3a5a",
+   "c2": "#22223a",
+   "tr": "#e8e070",
+   "fx": "#f0f070",
+   "aura": "sparks",
+   "proj": "spark"
+  },
+  "ocultista": {
+   "body": "robe",
+   "tat": 1,
+   "head": "skullhood",
+   "wpn": "tome",
+   "c1": "#3a2242",
+   "c2": "#22122a",
+   "tr": "#b05ad0",
+   "fx": "#c070f0",
+   "aura": "wisps",
+   "proj": "skull"
+  },
+  "geomante": {
+   "body": "robe",
+   "head": "bald",
+   "beard": "#8a7a5a",
+   "wpn": "gauntlet",
+   "c1": "#6a5a3a",
+   "c2": "#433820",
+   "tr": "#9ab06a",
+   "sk": "#c8a07a",
+   "fx": "#d8b070",
+   "aura": "rocks",
+   "proj": "rock"
+  },
+  "escriba": {
+   "body": "robe",
+   "head": "cap",
+   "hair": "#4a3020",
+   "wpn": "quill",
+   "back": "scroll",
+   "c1": "#2a6a6a",
+   "c2": "#1a4444",
+   "tr": "#e8dcb0",
+   "fx": "#70e0d0",
+   "aura": "runes",
+   "proj": "rune"
+  },
+  "enxame": {
+   "body": "rags",
+   "head": "deephood",
+   "eyes": "#ffb04a",
+   "wpn": "palm",
+   "c1": "#2e2622",
+   "c2": "#1a1410",
+   "tr": "#ff8a3a",
+   "fx": "#ffb04a",
+   "pet": "swarm",
+   "proj": "firefly"
+  },
+  "prismatico": {
+   "body": "robe",
+   "head": "crown",
+   "crown": "prism",
+   "hair": "#d8d0f0",
+   "wpn": "prism",
+   "c1": "#e4e2f2",
+   "c2": "#9a98b8",
+   "tr": "#7ad0e8",
+   "fx": "#e8d8ff",
+   "aura": "prisms",
+   "proj": "beam"
+  },
+  "batedor": {
+   "body": "cloak",
+   "head": "hood",
+   "wpn": "bow",
+   "back": "quiver",
+   "c1": "#3d5a34",
+   "c2": "#283b22",
+   "tr": "#a08a5a",
+   "fx": "#d8f0b0",
+   "proj": "arrow"
+  },
+  "elite": {
+   "body": "coat",
+   "head": "tricorn",
+   "monocle": 1,
+   "wpn": "longbow",
+   "back": "quiver",
+   "c1": "#4a5040",
+   "c2": "#2e3228",
+   "tr": "#c0a060",
+   "fx": "#fff0c0",
+   "proj": "arrow"
+  },
+  "armadilheiro": {
+   "body": "leather",
+   "head": "furcap",
+   "wpn": "shortbow",
+   "back": "trap",
+   "c1": "#7a5a3a",
+   "c2": "#4e3a24",
+   "tr": "#b0a080",
+   "fx": "#e0c090",
+   "proj": "arrow"
+  },
+  "trilheiro": {
+   "body": "leather",
+   "head": "feather",
+   "hair": "#6a4a2a",
+   "wpn": "recurve",
+   "back": "bigquiver",
+   "c1": "#5a7a3a",
+   "c2": "#3a5224",
+   "tr": "#d0b080",
+   "fx": "#e8f0a0",
+   "proj": "arrow"
+  },
+  "domador": {
+   "body": "fur",
+   "head": "wolf",
+   "wpn": "spear",
+   "c1": "#7a6a5a",
+   "c2": "#4e4438",
+   "tr": "#c0b090",
+   "sk": "#d0a882",
+   "fx": "#e0d0b0",
+   "pet": "wolf",
+   "proj": "spear"
+  },
+  "besteiro": {
+   "body": "leather",
+   "head": "kettle",
+   "wpn": "crossbow",
+   "back": "bolts",
+   "c1": "#5a4a3a",
+   "c2": "#3a3024",
+   "tr": "#a8a8a8",
+   "mt": "#8a9096",
+   "fx": "#e8e0d0",
+   "proj": "bolt"
+  },
+  "errante": {
+   "body": "leather",
+   "head": "mask",
+   "wpn": "dagger",
+   "off": "dagger",
+   "c1": "#2a2a34",
+   "c2": "#18181e",
+   "tr": "#8a5ad0",
+   "fx": "#b08af0",
+   "aura": "shadow",
+   "proj": "dagger"
+  },
+  "envenenador": {
+   "body": "cloak",
+   "head": "mask",
+   "vials": 1,
+   "wpn": "poisondagger",
+   "c1": "#3a5a3a",
+   "c2": "#223a22",
+   "tr": "#9ae04a",
+   "fx": "#9ae04a",
+   "aura": "bubbles",
+   "proj": "dart"
+  },
+  "polvora": {
+   "body": "apron",
+   "head": "goggles",
+   "hair": "#5a3a22",
+   "wpn": "cannon",
+   "off": "bomb",
+   "back": "barrel",
+   "c1": "#6a4a2a",
+   "c2": "#42301c",
+   "tr": "#d0a040",
+   "fx": "#ffb040",
+   "aura": "smoke",
+   "proj": "bomb"
+  },
+  "devoto": {
+   "body": "robe",
+   "head": "hood",
+   "wpn": "sunmace",
+   "c1": "#8a7a52",
+   "c2": "#5c5136",
+   "tr": "#f0d27a",
+   "fx": "#ffe8a0"
+  },
+  "aurora": {
+   "body": "plate",
+   "head": "crest",
+   "crestCol": "#fff0b0",
+   "wpn": "sunhammer",
+   "back": "cape",
+   "c1": "#d0a040",
+   "c2": "#8a6a20",
+   "tr": "#fff0b0",
+   "mt": "#e8c870",
+   "cape": "#f0e6d0",
+   "fx": "#ffe080",
+   "aura": "halo"
+  },
+  "herbalista": {
+   "body": "robe",
+   "head": "crown",
+   "crown": "flowers",
+   "hair": "#7a5a3a",
+   "wpn": "leafstaff",
+   "back": "basket",
+   "c1": "#6a8a4a",
+   "c2": "#445a30",
+   "tr": "#e8c0e0",
+   "fx": "#a0e070",
+   "aura": "leaves"
+  },
+  "juiz": {
+   "body": "robe",
+   "head": "judge",
+   "wpn": "execblade",
+   "c1": "#4a4642",
+   "c2": "#2e2a28",
+   "tr": "#c8a050",
+   "fx": "#e0d8c8",
+   "aura": "ash"
+  },
+  "cantor": {
+   "body": "robe",
+   "head": "crown",
+   "crown": "laurel",
+   "hair": "#c89a5a",
+   "wpn": "bellstaff",
+   "c1": "#e8e0d0",
+   "c2": "#9a9080",
+   "tr": "#5a8ac0",
+   "fx": "#a0c8ff",
+   "aura": "notes"
+  },
+  "limiar": {
+   "body": "plate",
+   "head": "greathelm",
+   "slit": "#70e0c0",
+   "wpn": "keystaff",
+   "off": "round",
+   "c1": "#3a6a6a",
+   "c2": "#224444",
+   "tr": "#c0a060",
+   "mt": "#8aa0a0",
+   "fx": "#70e0c0",
+   "aura": "glyph"
+  },
+  "peregrino": {
+   "body": "tunic",
+   "head": "widehat",
+   "beads": 1,
+   "wpn": "pilgrimstaff",
+   "back": "pack",
+   "c1": "#8a6a4a",
+   "c2": "#5a4430",
+   "tr": "#d0b080",
+   "fx": "#f0d8a0"
+  },
+  "augure": {
+   "body": "cloak",
+   "feathers": 1,
+   "head": "beak",
+   "wpn": "eyestaff",
+   "c1": "#3a3a4a",
+   "c2": "#22222e",
+   "tr": "#e0a040",
+   "fx": "#f0c060",
+   "aura": "raven"
+  },
+  "penitente": {
+   "body": "rags",
+   "head": "cowl",
+   "wpn": "flail",
+   "c1": "#6a5a4a",
+   "c2": "#443a30",
+   "tr": "#9a9aa0",
+   "fx": "#e06050",
+   "aura": "chains"
+  },
+  "corrente": {
+   "body": "plate",
+   "chainsBody": 1,
+   "head": "coif",
+   "wpn": "chain",
+   "c1": "#5a6470",
+   "c2": "#3a424c",
+   "tr": "#c0a060",
+   "mt": "#8a929a",
+   "fx": "#c8d0d8"
+  },
+  "gemeas": {
+   "body": "leather",
+   "head": "ribbon",
+   "hair": "#2a2420",
+   "wpn": "scimitar",
+   "off": "dagger",
+   "offKind": "scimitar",
+   "c1": "#2f6a6a",
+   "c2": "#1e4646",
+   "tr": "#e0c070",
+   "fx": "#9ff0e0",
+   "aura": "wind"
+  },
+  "brasa": {
+   "body": "plate",
+   "cracks": 1,
+   "head": "visor",
+   "wpn": "flamberge",
+   "c1": "#3a2a26",
+   "c2": "#22181a",
+   "tr": "#ff8a3a",
+   "mt": "#5a4a46",
+   "fx": "#ff7a3a",
+   "aura": "embers"
+  },
+  "relojoeiro": {
+   "body": "coat",
+   "head": "tophat",
+   "monocle": 1,
+   "wpn": "clockstaff",
+   "c1": "#5a4a3a",
+   "c2": "#3a2f26",
+   "tr": "#d8b060",
+   "fx": "#f0d080",
+   "aura": "gears",
+   "proj": "cog"
+  },
+  "espelhos": {
+   "body": "robe",
+   "head": "halfmask",
+   "wpn": "mirror",
+   "c1": "#9aa4b8",
+   "c2": "#5a6478",
+   "tr": "#e8f0ff",
+   "fx": "#d0e8ff",
+   "aura": "mirrors",
+   "proj": "shard"
+  },
+  "lunar": {
+   "body": "robe",
+   "head": "crown",
+   "crown": "moon",
+   "hair": "#c8d0e8",
+   "wpn": "moonstaff",
+   "c1": "#24305a",
+   "c2": "#151c38",
+   "tr": "#c8d0f0",
+   "fx": "#c8d8ff",
+   "aura": "stars",
+   "proj": "moon"
+  },
+  "falcoeiro": {
+   "body": "leather",
+   "head": "capfeather",
+   "hair": "#5a3a22",
+   "wpn": "bow",
+   "off": "dagger",
+   "offKind": "glove",
+   "back": "quiver",
+   "c1": "#6a5a3a",
+   "c2": "#433820",
+   "tr": "#c89a5a",
+   "fx": "#f0d8a0",
+   "pet": "hawk",
+   "proj": "arrow"
+  },
+  "espectral": {
+   "body": "cloak",
+   "head": "deephood",
+   "eyes": "#70f0f0",
+   "wpn": "spiritbow",
+   "c1": "#c8d4d8",
+   "c2": "#7a8a90",
+   "tr": "#70e0e0",
+   "fx": "#80f0f0",
+   "aura": "spirits",
+   "proj": "ghost"
+  },
+  "cacador": {
+   "body": "coat",
+   "pouches": 1,
+   "head": "brim",
+   "wpn": "bolas",
+   "c1": "#6a4a32",
+   "c2": "#42301f",
+   "tr": "#c0a070",
+   "fx": "#f0d090",
+   "proj": "bolas"
+  },
+  "asceta": {
+   "body": "monk",
+   "head": "topknot",
+   "wpn": "fists",
+   "c1": "#4a5a7a",
+   "c2": "#2e3a52",
+   "tr": "#e8e0c8",
+   "sk": "#d8a880",
+   "fx": "#c8e0ff",
+   "aura": "calm"
+  },
+  "mares": {
+   "body": "robe",
+   "head": "crown",
+   "crown": "shells",
+   "hair": "#8adad0",
+   "wpn": "tridentstaff",
+   "c1": "#2a6a8a",
+   "c2": "#1a4458",
+   "tr": "#e8f4f0",
+   "fx": "#8ae0f0",
+   "aura": "droplets"
+  },
+  "relicario": {
+   "body": "robe",
+   "head": "goldmask",
+   "wpn": "censer",
+   "back": "reliquary",
+   "c1": "#5a3a5a",
+   "c2": "#3a2440",
+   "tr": "#e0c060",
+   "fx": "#f0d890",
+   "aura": "incense"
+  }
+ },
+ "GROUND": {
+  "trees": [
+   "#2c4a33",
+   "#38593c"
+  ],
+  "reeds": [
+   "#2b4440",
+   "#35524b"
+  ],
+  "rocks": [
+   "#4a443c",
+   "#59524a"
+  ],
+  "pale": [
+   "#3c4250",
+   "#4a5160"
+  ],
+  "ruins": [
+   "#27454b",
+   "#31535a"
+  ],
+  "dunes": [
+   "#7a5a33",
+   "#8c6c40"
+  ],
+  "peaks": [
+   "#66747f",
+   "#7a8894"
+  ],
+  "void": [
+   "#2a2030",
+   "#352a3d"
+  ],
+  "tar": [
+   "#1c2128",
+   "#252c34"
+  ],
+  "crystals": [
+   "#2a2238",
+   "#342b46"
+  ],
+  "city": [
+   "#21393d",
+   "#2a464a"
+  ],
+  "lava": [
+   "#3a1c14",
+   "#48261b"
+  ],
+  "dawn": [
+   "#56607a",
+   "#6b7392"
+  ]
+ },
+ "FOLIAGE": {
+  "trees": "#3f7048",
+  "reeds": "#4d7a4f",
+  "rocks": "#5d6f45",
+  "pale": "#b9c2bd",
+  "ruins": "#3f6c5f",
+  "dawn": "#7b9a5c",
+  "peaks": "#2d5242",
+  "void": "#3a2a46",
+  "tar": "#2b3a3a",
+  "city": "#2f5a50",
+  "dunes": "#6a7a3a",
+  "crystals": "#4a3a66",
+  "lava": "#4a2a1a"
+ },
+ "PROP_SET": {
+  "trees": [
+   "pine",
+   "round",
+   "round",
+   "bush",
+   "rock"
+  ],
+  "reeds": [
+   "reeds",
+   "reeds",
+   "round",
+   "pond",
+   "bush"
+  ],
+  "rocks": [
+   "rock",
+   "rock",
+   "boulder",
+   "pine"
+  ],
+  "pale": [
+   "birch",
+   "birch",
+   "dead",
+   "rock"
+  ],
+  "ruins": [
+   "column",
+   "column",
+   "glass",
+   "rock"
+  ],
+  "dunes": [
+   "rock",
+   "obelisk",
+   "bones",
+   "rock"
+  ],
+  "peaks": [
+   "snowpine",
+   "snowpine",
+   "rock",
+   "boulder"
+  ],
+  "void": [
+   "shard",
+   "dead",
+   "shard",
+   "rock"
+  ],
+  "tar": [
+   "wreck",
+   "rock",
+   "pond",
+   "pond"
+  ],
+  "crystals": [
+   "crystal",
+   "crystal",
+   "rock"
+  ],
+  "city": [
+   "tower",
+   "column",
+   "pond",
+   "rock"
+  ],
+  "lava": [
+   "vent",
+   "rock",
+   "rock",
+   "boulder"
+  ],
+  "dawn": [
+   "pillar",
+   "round",
+   "pine",
+   "bush"
+  ]
+ },
+ "CLASS_NAMES": {
+  "guerreiro": "Guerreiro",
+  "arcanista": "Arcanista",
+  "batedor": "Batedor",
+  "devoto": "Devoto",
+  "baluarte": "Baluarte",
+  "ceifador": "Ceifador",
+  "duelista": "Duelista",
+  "furia": "Fúria Rubra",
+  "estandarte": "Porta-Estandarte",
+  "quebraescudos": "Quebra-Escudos",
+  "campeao": "Campeão do Fosso",
+  "farpada": "Couraça Farpada",
+  "corrente": "Guardião de Corrente",
+  "gemeas": "Lâminas Gêmeas",
+  "brasa": "Cavaleiro de Brasa",
+  "tecelao": "Piromaníaco",
+  "glacial": "Vidente Glacial",
+  "tempestario": "Tempestário",
+  "ocultista": "Ocultista",
+  "geomante": "Geomante",
+  "escriba": "Escriba Arcano",
+  "enxame": "Chamador de Fagulhas",
+  "prismatico": "Prismático",
+  "relojoeiro": "Relojoeiro Arcano",
+  "espelhos": "Conjurador de Espelhos",
+  "lunar": "Vidente Lunar",
+  "elite": "Atirador de Elite",
+  "armadilheiro": "Armadilheiro",
+  "trilheiro": "Trilheiro",
+  "domador": "Domador",
+  "besteiro": "Besteiro de Cerco",
+  "errante": "Sombra Errante",
+  "envenenador": "Envenenador",
+  "polvora": "Artífice da Pólvora",
+  "falcoeiro": "Falcoeiro",
+  "espectral": "Flecheiro Espectral",
+  "cacador": "Caçador de Prêmios",
+  "aurora": "Sentinela da Aurora",
+  "herbalista": "Herbalista",
+  "juiz": "Juiz de Cinzas",
+  "cantor": "Cantor de Hinos",
+  "limiar": "Guardião do Limiar",
+  "peregrino": "Peregrino",
+  "augure": "Áugure das Cinzas",
+  "penitente": "Penitente",
+  "asceta": "Asceta",
+  "mares": "Clérigo das Marés",
+  "relicario": "Guardião do Relicário"
+ }
+}

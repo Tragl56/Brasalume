@@ -1,0 +1,12 @@
+# Dependencias
+jogo/node_modules/
+
+# Builds gerados
+jogo/dist/
+
+# Artefatos locais e temporarios
+__pycache__/
+*.py[cod]
+*.log
+.vercel/
+Brasalume/

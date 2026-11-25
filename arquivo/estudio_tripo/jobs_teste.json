@@ -1,0 +1,26 @@
+{
+  "about": "Leva de teste da Tripo para o Brasalume: cenário da Clareira das Cinzas. Pedidos originais, escritos para este jogo.",
+  "defaults": {
+    "model": "v3.1-20260211",
+    "texture": true,
+    "pbr": false,
+    "texture_quality": "standard",
+    "face_limit": 12000,
+    "negative_prompt": "ground plane, base, pedestal, platform, terrain, grass patch, text, watermark, multiple objects, background, people, characters"
+  },
+  "style": "stylized fantasy game prop, chunky readable silhouette, hand-painted texture, soft muted colors, single isolated object standing upright, no ground",
+  "jobs": [
+    {"name": "pinheiro", "type": "pine", "px": 256,
+     "prompt": "a stylized pine tree with three chunky layered tiers of dark green needles and a short brown trunk"},
+    {"name": "arvore_redonda", "type": "round", "px": 256,
+     "prompt": "a stylized broadleaf tree with a round fluffy canopy made of clustered leaf clumps in muted green and a thick short gnarled trunk"},
+    {"name": "arbusto", "type": "bush", "px": 128,
+     "prompt": "a small stylized leafy bush made of a few round clumps of green leaves"},
+    {"name": "pedra", "type": "rock", "px": 128,
+     "prompt": "a stylized faceted gray boulder with a few small moss patches on top"},
+    {"name": "portal", "type": "portal", "px": 256, "front": true,
+     "prompt": "an ancient stone archway with two weathered stone pillars joined by a rounded arch, faint carved runes, the opening is empty"},
+    {"name": "menir", "type": "menhir", "px": 160,
+     "prompt": "a tall weathered standing stone with faint carved spiral markings and a little moss at its foot"}
+  ]
+}

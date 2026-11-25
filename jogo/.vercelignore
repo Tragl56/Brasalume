@@ -1,0 +1,12 @@
+*
+!package.json
+!package-lock.json
+!index.html
+!vite.config.js
+!vercel.json
+!jogar_local.html
+!brasalume.html
+!src
+!src/**
+!sprites
+!sprites/**
