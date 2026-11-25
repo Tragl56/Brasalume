@@ -116,8 +116,8 @@ def pernas(L, B, R):
                 sph((1.6, y * 1.02, 15), 3.6, mat('metal', shade(mt, -.15)), scale=(.75, 1, 2.4), parent=R)
                 sph((2.2, y * 1.02, JOELHO), 3.6, mat('metal', mt), scale=(.9, 1.05, 1), parent=R)
                 sph((3.6, y * 1.02, JOELHO), 2.1, mat('metal', shade(mt, .15)), scale=(.5, 1.5, 1.4), parent=R)
-                for k in range(3):
-                    box((4 + k * 2.2, y * 1.03, 4.2 - k * .6), (2.6, 5.6, 2), mat('metal', shade(mt, -.2 + k * .07)), rot=(0, -.25, 0), bevel=.5, parent=R)
+                for k in range(3):   # escarpe: lâminas sobrepostas em cima do pé
+                    box((3.2 + k * 1.8, y * 1.03, 4.5 - k * .55), (3.6, 5.5, 1.3), mat('metal', shade(mt, -.2 + k * .07)), rot=(0, -.22, 0), bevel=.45, parent=R)
                 sph((.4, y * 1.02, 38), 4.4, mat('metal', shade(mt, -.1)), scale=(.9, .95, 1.6), parent=R)   # coxote
             else:
                 # correias da bota e joelheira de couro
@@ -138,6 +138,16 @@ def _anatomia(R, m, costas_m=None):
     sph((-1, 0, OMBRO_Z), 7, costas_m, scale=(.78, 1.6, .5), parent=R)
 
 
+def _frente(y, z):
+    """Onde fica a frente do tronco (x) numa altura e lateral: a maior entre o peito e a barriga de _anatomia."""
+    melhor = 0.0
+    for (cx, cz, r, sx, sy, sz) in ((.9, PEITO + .5, 10, .8, 1.36, .9), (.3, 55.5, 8.2, .82, 1.26, 1.0), (0, QUADRIL + 2.5, 8.6, .8, 1.16, .62)):
+        q = 1 - (y / (r * sy)) ** 2 - ((z - cz) / (r * sz)) ** 2
+        if q > 0:
+            melhor = max(melhor, cx + r * sx * math.sqrt(q))
+    return melhor
+
+
 def _pescoco(L, R):
     sk = L.get('sk', SKIN)
     cyl((-.5, 0, 71), (-.2, 0, 80), 3.9, 3.3, mat('skin', sk), parent=R)
@@ -151,8 +161,16 @@ def _saia(L, B, R, m, hem_novo, fl):
     if B.get('split'):
         for a0, a1 in ((math.radians(22), math.radians(180)), (math.radians(-180), math.radians(-22))):
             casca(CINTO + 1, hem_novo, 10.6, fl * 1.02, a0, a1, m, xs=.8, esp=1.4, segs=24, rings=10, dobras=dobras, parent=R)
+    elif hem_novo > 18:
+        # saia curta em quatro abas (frente, trás e lados) com frestas: as pernas aparecem e a silhueta ganha recortes
+        for k in range(4):
+            a = k * math.pi / 2
+            casca(CINTO + 1, hem_novo - (2 if k % 2 == 0 else 0), 10.6, fl * 1.06, a - .68, a + .68, m, xs=.8, esp=1.4, segs=12, rings=8,
+                  dobras=dobras * .6, parent=R)
     else:
-        casca(CINTO + 1, hem_novo, 10.6, fl * 1.02, 0, math.tau, m, xs=.8, esp=1.4, segs=40, rings=12, dobras=dobras,
+        longa = hem_novo < 15   # túnicas e mantos até o chão abrem mais na barra
+        casca(CINTO + 1, hem_novo, 10.6, fl * (1.2 if longa else 1.02), 0, math.tau, m, xs=.8, esp=1.4, segs=40, rings=12,
+              dobras=dobras * (1.6 if longa else 1),
               rasgos=5 if (B.get('tat') or L.get('tat')) else 0, parent=R)
 
 
@@ -245,6 +263,18 @@ def tronco(L, B, R):
                 sph((5.6, s * 6, 64), 5.6, mat('leather', shade(L['c1'], -.12)), scale=(.5, 1, .9), parent=R)
     if B.get('pld'):
         _ombreiras(L, B, R)
+    # correia diagonal colada ao peito (talabarte): grossa e com fivelas quando o corpo pede 'strap'
+    if B.get('strap') or not (bare or L.get('tabard') or armor):
+        grossa = bool(B.get('strap'))
+        pts = []
+        for k in range(7):
+            u = k / 6
+            y, z = 11 - 21 * u, 73 - 23 * u
+            pts.append((_frente(y, z) + .6, y, z))
+        tubo(pts, 1.5 if grossa else .9, mat('leather', '#4a3020' if grossa else '#3a2618'), parent=R)
+        if grossa:
+            for k in (2, 4):
+                sph((pts[k][0] + 1, pts[k][1], pts[k][2]), .8, mat('metal', '#b8b0a0'), parent=R)
     # enfeites antigos (cinto, bolsas, faixas, colar, contas, penas, correntes, rachaduras, manto...) remapeados
     with novos() as n:
         extras(L, B, R)
@@ -271,8 +301,6 @@ def extras(L, B, R):
         box((w * .76 + .2, 0, (58 + hem) / 2), (1, 2.6, 58 - hem), tm(L), bevel=.3, parent=R)
     if not bare:
         box((rc * .5, -rc * .9, zc - 4), (4.4, 2.6, 5.4), mat('leather', '#4a3222'), rot=(0, 0, -.5), bevel=.9, parent=R)
-        if not B.get('strap') and not L.get('tabard'):
-            cyl((w * .7 + .8, 10, 59), (w * .72 + 1, -8, 37), .9, .9, mat('leather', '#3a2618'), parent=R)
     if L.get('tabard'):
         box((w * .8 + .8, 0, (60 + hem) / 2 - 2), (1.2, 10, 60 - hem + 8), mat('cloth', L['c1']), bevel=.4, parent=R)
         sph((w * .8 + 1.7, 0, 47), 2.6, mat('gold', L['tr']), scale=(.4, 1, 1), parent=R)
@@ -280,11 +308,6 @@ def extras(L, B, R):
         box((w * .78 + .8, 0, (52 + hem) / 2), (1.2, 11, 52 - hem), mat('leather', shade(L['c1'], .3)), bevel=.5, parent=R)
     if B.get('collar'):
         torus((0, 0, 60.5), 10.5, 4.2, mat('fur', shade(L['c1'], .14)), scale=(.8, 1, .8), parent=R)
-    if B.get('strap'):
-        cyl((w * .78 + .6, -9, 59), (w * .78 + .9, 9, 34), 1.4, 1.4, mat('leather', '#4a3020'), parent=R)
-        for k in range(3):
-            u = (k + 1) / 4
-            sph((w * .78 + 1.6, -9 + 18 * u, 59 - 25 * u), .7, mat('metal', '#b8b0a0'), parent=R)
     if L.get('beads'):
         conta = mat('wood', '#6a4a2a')
         for i in range(11):
@@ -342,11 +365,11 @@ def bracos(L, B, R):
         with parte(R, 'braco', ombro, **braco_anim(L, lado)):
             o = Vector(ombro)
             c, h = Vector(cotov), Vector(mao)
-            caps(tuple(o), tuple(c), 3.5, m, r2=2.9, parent=R)                                    # braço
-            sph(tuple(o + (c - o) * .4 + Vector((.8, 0, 0))), 3.4, m, scale=(1.1, .95, 1.5), parent=R)   # bíceps
-            caps(tuple(c), tuple(h), 3.1, m, r2=2.3, parent=R)                                    # antebraço
+            caps(tuple(o), tuple(c), 3.2, m, r2=2.5, parent=R)                                    # braço
+            sph(tuple(o + (c - o) * .42 + Vector((.7, 0, 0))), 2.9, m, scale=(1.05, .9, 1.6), parent=R)   # bíceps
+            caps(tuple(c), tuple(h), 2.6, m, r2=2.0, parent=R)                                    # antebraço
             p, q = c + (h - c) * .45, c + (h - c) * .9
-            cyl(tuple(p), tuple(q), 3.0, 3.4, brac, parent=R)                                    # braçadeira que abre no punho
+            cyl(tuple(p), tuple(q), 2.7, 3.2, brac, parent=R)                                    # braçadeira que abre no punho
             if armor:
                 sph(tuple(c), 3.6, mat('metal', mt), parent=R)                                    # cotoveleira
                 sph(tuple(c + Vector((-1.6, 0, 0))), 2.2, mat('metal', shade(mt, .15)), scale=(.5, 1.2, 1.2), parent=R)
